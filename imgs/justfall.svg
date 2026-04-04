@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200">
+  <defs><linearGradient id="jfbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0a3d"/><stop offset="100%" stop-color="#0d0520"/></linearGradient></defs>
+  <rect width="320" height="200" fill="url(#jfbg)"/>
+  <!-- platforms --><rect x="20" y="60" width="80" height="15" rx="7" fill="#7c4dff"/>
+  <rect x="140" y="40" width="80" height="15" rx="7" fill="#ff3d6b"/>
+  <rect x="220" y="80" width="80" height="15" rx="7" fill="#00e5ff"/>
+  <rect x="60" y="120" width="80" height="15" rx="7" fill="#ffd600"/>
+  <rect x="180" y="130" width="80" height="15" rx="7" fill="#7c4dff"/>
+  <!-- falling beans/characters --><ellipse cx="60" cy="45" rx="12" ry="15" fill="#ff6b6b"/>
+  <circle cx="60" cy="32" r="9" fill="#ff6b6b"/><circle cx="57" cy="30" r="2" fill="white"/><circle cx="63" cy="30" r="2" fill="white"/>
+  <ellipse cx="180" cy="25" rx="12" ry="15" fill="#4ecdc4"/>
+  <circle cx="180" cy="12" r="9" fill="#4ecdc4"/><circle cx="177" cy="10" r="2" fill="white"/><circle cx="183" cy="10" r="2" fill="white"/>
+  <ellipse cx="260" cy="65" rx="12" ry="15" fill="#ffd93d"/>
+  <circle cx="260" cy="52" r="9" fill="#ffd93d"/><circle cx="257" cy="50" r="2" fill="white"/><circle cx="263" cy="50" r="2" fill="white"/>
+  <!-- eliminated X --><line x1="140" y1="160" x2="156" y2="176" stroke="#ff3d6b" stroke-width="3"/>
+  <line x1="156" y1="160" x2="140" y2="176" stroke="#ff3d6b" stroke-width="3"/>
+  <ellipse cx="148" cy="145" rx="12" ry="14" fill="#888"/>
+  <!-- particle effects --><circle cx="100" cy="90" r="3" fill="#ffd600" opacity=".7"/><circle cx="200" cy="70" r="2" fill="#ff3d6b" opacity=".8"/><circle cx="280" cy="100" r="3" fill="#00e5ff" opacity=".6"/>
+  <!-- title --><text x="160" y="192" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="white">JUSTFALL.LOL</text>
+</svg>
