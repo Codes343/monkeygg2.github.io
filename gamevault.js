@@ -101,6 +101,41 @@ const GAMES = [
   {id:'ages-of-conflict',  name:'Ages of Conflict',       cat:'strategy',   emoji:'⚔️', hot:false,            path:'games/ages-of-conflict/',        tip:'Command troops · conquer territories'},
   {id:'awesome-tanks',     name:'Awesome Tanks',          cat:'strategy',   emoji:'🪖', hot:false,            path:'games/awesome-tanks/',           tip:'WASD move · mouse aim · blast enemies'},
   {id:'awesome-tanks-2',   name:'Awesome Tanks 2',        cat:'strategy',   emoji:'🔴', hot:false,            path:'games/awesome-tanks-2/',         tip:'More upgrades · bigger levels'},
+
+  // ── NEW GAMES (external via unblockedwtf) ────────────
+  {id:'dune-dash',         name:'Dune Dash',            cat:'racing',     emoji:'🏄', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/dune-dash',          tip:'Ride the dunes · tap to jump · go fast!', ext:true},
+  {id:'moto-x3m-2',        name:'Moto X3M 2',           cat:'racing',     emoji:'🏍️', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/moto-x3m-2',         tip:'↑ Gas · ↓ Brake · ←→ Balance · more levels', ext:true},
+  {id:'moto-x3m-winter',   name:'Moto X3M Winter',      cat:'racing',     emoji:'❄️', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/moto-x3m-winter',    tip:'↑ Gas · ↓ Brake · ←→ Balance · icy tracks', ext:true},
+  {id:'moto-x3m-pool',     name:'Moto X3M Pool Party',  cat:'racing',     emoji:'🌊', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/moto-x3m-pool-party', tip:'↑ Gas · ↓ Brake · ←→ Balance · water levels', ext:true},
+  {id:'moto-x3m-spooky',   name:'Moto X3M Spooky Land', cat:'racing',     emoji:'👻', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/moto-x3m-spooky-land',tip:'↑ Gas · ↓ Brake · ←→ Balance · halloween', ext:true},
+  {id:'baseball-bros',     name:'Baseball Bros',         cat:'sports',     emoji:'⚾', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/baseball-bros',       tip:'Click to swing · time your hits!', ext:true},
+  {id:'football-bros',     name:'Football Bros',         cat:'sports',     emoji:'🏈', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/football-bros',       tip:'Run, pass, tackle · score touchdowns!', ext:true},
+  {id:'basket-bros',       name:'Basket Bros',           cat:'sports',     emoji:'🏀', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/basket-bros',         tip:'Dunk on your opponent!', ext:true},
+  {id:'basketball-legends',name:'Basketball Legends',    cat:'sports',     emoji:'🏀', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/basketball-legends',   tip:'A/D move · W jump · S special · 2-player', ext:true},
+  {id:'helix-jump',        name:'Helix Jump',            cat:'puzzle',     emoji:'🌀', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/helix-jump',          tip:'Drag to spin the tower · fall through the gaps!', ext:true},
+  {id:'paper-io-2',        name:'Paper.io 2',            cat:'action',     emoji:'📄', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/paper-io-2',          tip:'Draw territory · don't let others cut your trail', ext:true},
+  {id:'survival-race',     name:'Survival Race',         cat:'racing',     emoji:'💀', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/survival-race',       tip:'Race to survive · eliminate the competition', ext:true},
+  {id:'bottle-flip',       name:'Bottle Flip',           cat:'fun',        emoji:'🧃', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/bottle-flip',         tip:'Time your tap · land the bottle perfectly!', ext:true},
+  {id:'stickman-duel',     name:'Stickman Duel',         cat:'action',     emoji:'⚔️', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/stickman-duel',       tip:'Mouse to aim · click to fire your weapon', ext:true},
+  {id:'slope-2',           name:'Slope 2',               cat:'racing',     emoji:'🔵', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/slope-2',             tip:'← → steer · faster and harder than slope 1', ext:true},
+  {id:'slope-tunnel',      name:'Slope Tunnel',          cat:'racing',     emoji:'🌀', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/slope-tunnel',        tip:'← → steer inside the neon tunnel', ext:true},
+  {id:'slope-2p',          name:'Slope 2 Players',       cat:'racing',     emoji:'🔵', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/slope-2-players',     tip:'Race a friend on the same keyboard', ext:true},
+  {id:'cluster-rush',      name:'Cluster Rush',          cat:'platformer', emoji:'🚛', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/cluster-rush',        tip:'Jump between trucks · don't fall off!', ext:true},
+  {id:'snow-rider',        name:'Snow Rider 3D',          cat:'racing',     emoji:'🎿', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/snow-rider',           tip:'← → steer · dodge trees · collect gifts', ext:true},
+  {id:'drift-hunters',     name:'Drift Hunters',          cat:'racing',     emoji:'🚗', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/drift-hunters',        tip:'Drift for points · upgrade your car', ext:true},
+  {id:'slow-roads',        name:'Slow Roads',             cat:'racing',     emoji:'🛣️', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/slow-roads',           tip:'Relaxing endless drive · zen mode', ext:true},
+  {id:'house-of-hazards',  name:'House of Hazards',       cat:'action',     emoji:'🏠', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/house-of-hazards',     tip:'Survive household hazards · multiplayer chaos!', ext:true},
+  {id:'hole-io',           name:'Hole.io',                cat:'action',     emoji:'🕳️', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/hole-io',              tip:'Swallow everything · grow your hole', ext:true},
+  {id:'happy-wheels',      name:'Happy Wheels',           cat:'fun',        emoji:'😈', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/happy-wheels',         tip:'Drive · crash · ragdoll physics chaos', ext:true},
+  {id:'plants-vs-zombies', name:'Plants vs Zombies',      cat:'strategy',   emoji:'🌻', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/plants-vs-zombies',    tip:'Plant sunflowers · defend from zombies', ext:true},
+  {id:'pokemon-fire-red',  name:'Pokemon Fire Red',       cat:'retro',      emoji:'🔴', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/pokemon-fire-red',     tip:'Classic GBA Pokemon · catch 'em all!', ext:true},
+  {id:'pokemon-emerald',   name:'Pokemon Emerald',        cat:'retro',      emoji:'💚', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/pokemon-emerald',      tip:'Classic GBA Pokemon · Hoenn region', ext:true},
+  {id:'super-smash-flash2',name:'Super Smash Flash 2',    cat:'action',     emoji:'👊', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/super-smash-flash-2',  tip:'WASD move · J attack · K special · L shield', ext:true},
+  {id:'getting-over-it',   name:'Getting Over It',        cat:'fun',        emoji:'⛏️', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/getting-over-it',      tip:'Mouse to swing hammer · climb the mountain · rage game', ext:true},
+  {id:'qwop',              name:'QWOP',                   cat:'fun',        emoji:'🏃', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/qwop',                 tip:'Q/W = thighs · O/P = calves · try to walk', ext:true},
+  {id:'fnaf-2',            name:'FNAF 2',                 cat:'action',     emoji:'🐻', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/fnaf-2',               tip:'Manage cameras · wind music box · survive the night', ext:true},
+  {id:'learn-to-fly-3',    name:'Learn to Fly 3',         cat:'fun',        emoji:'🐧', hot:false, isNew:true, path:'https://sites.google.com/site/unblockedwtf/learn-to-fly-3',       tip:'Launch the penguin · upgrade · fly to space', ext:true},
+  {id:'smash-karts-wtf',   name:'Smash Karts',            cat:'racing',     emoji:'💥', hot:true,  isNew:true, path:'https://sites.google.com/site/unblockedwtf/smash-karts',          tip:'WASD drive · collect weapons · smash everyone!', ext:true},
 ];
 
 const _seen = new Set();
@@ -145,6 +180,8 @@ function applyCloak() {
 
 // ── OPEN GAME ─────────────────────────────────────────
 function openGame(path, id) {
+  const game = GAMES_FINAL.find(g => g.id === id);
+  if (game && game.ext) { window.open(path, '_blank'); return; }
   if (S.blank) openBlank(path, id);
   else window.open(path, '_blank');
 }
@@ -258,7 +295,7 @@ document.addEventListener('click', e => {
   const pn=e.target.closest('.play-now');
   if (pn){e.stopPropagation();openGame(pn.dataset.path,pn.dataset.id);return;}
   const bb=e.target.closest('.blank-btn');
-  if (bb){e.stopPropagation();openBlank(bb.dataset.path,bb.dataset.id);return;}
+  if (bb){e.stopPropagation();const _g=GAMES_FINAL.find(g=>g.id===bb.dataset.id);if(_g&&_g.ext){window.open(bb.dataset.path,'_blank');return;}openBlank(bb.dataset.path,bb.dataset.id);return;}
   const card=e.target.closest('.game-card');
   if (card&&!e.target.closest('.open-choice')&&!e.target.closest('.fav-star'))
     openGame(card.dataset.path,card.dataset.id);
@@ -498,3 +535,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   initFavorites();
   initChat();
 });
+// NOTE: patch — add new games from unblockedwtf at bottom of GAMES array before the dedupe
+// These are external iframe games (unblockedwtf hosts them)
+// Insert these into the GAMES array in gamevault.js after the last entry, before the closing ];
