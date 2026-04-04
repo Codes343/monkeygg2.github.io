@@ -13,39 +13,64 @@
 .movies-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,6vw,48px);letter-spacing:3px;line-height:1;margin-bottom:5px;}
 .cm{color:#b44dff;text-shadow:0 0 30px rgba(180,77,255,.5);}
 .movies-hero p{color:var(--muted);font-size:13px;font-weight:600;}
-.notice{background:rgba(180,77,255,.07);border:1px solid rgba(180,77,255,.2);border-radius:8px;padding:12px 14px;margin-bottom:20px;font-size:12px;font-weight:600;color:#c97fff;line-height:1.6;}
-.notice strong{color:#b44dff;}
-.movie-section{margin-bottom:30px;}
+
+/* HOW TO ADD */
+.how-to{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:22px;}
+.how-to h2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;margin-bottom:14px;}
+.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+.step:last-child{margin-bottom:0;}
+.step-num{width:26px;height:26px;background:#b44dff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;flex-shrink:0;margin-top:1px;}
+.step-text{font-size:13px;font-weight:600;color:var(--text);line-height:1.5;}
+.step-text code{background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:monospace;font-size:12px;color:var(--accent);}
+.step-text strong{color:#b44dff;}
+.folder-structure{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:monospace;font-size:12px;color:var(--muted);line-height:1.8;margin-top:10px;}
+.folder-structure .hl{color:var(--accent);}
+.folder-structure .hl2{color:#b44dff;}
+
+/* ADD MOVIE FORM */
+.add-section{background:var(--surface);border:1px solid #b44dff33;border-radius:12px;padding:18px;margin-bottom:22px;}
+.add-section h2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;margin-bottom:14px;}
+.form-row{margin-bottom:12px;}
+.form-label{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px;display:block;}
+.form-input{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--text);font-size:13px;font-weight:600;outline:none;transition:border-color .2s;font-family:inherit;}
+.form-input:focus{border-color:#b44dff;}
+.form-input::placeholder{color:var(--muted);}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.add-btn{width:100%;background:#b44dff;color:#fff;border:none;border-radius:8px;padding:11px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;cursor:pointer;margin-top:4px;transition:background .15s;}
+.add-btn:hover{background:#9933ff;}
+.no-movies{text-align:center;padding:48px 20px;color:var(--muted);}
+.no-movies .big{font-size:52px;display:block;margin-bottom:12px;}
+.no-movies p{font-size:13px;font-weight:600;line-height:1.6;}
+
+/* MOVIE GRID */
 .movie-section h2{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .movie-section h2 .line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
-.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
-@media(min-width:480px){.movie-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));}}
-.movie-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column;}
-.movie-card:hover{border-color:#b44dff;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.5),0 0 20px rgba(180,77,255,.3);}
+.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:28px;}
+@media(min-width:480px){.movie-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}}
+.movie-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;}
+.movie-card:hover{border-color:#b44dff;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.5),0 0 20px rgba(180,77,255,.25);}
 .movie-poster{width:100%;aspect-ratio:2/3;background:var(--s2);position:relative;overflow:hidden;}
 .movie-poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
 .movie-card:hover .movie-poster img{transform:scale(1.05);}
-.movie-poster-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:42px;flex-direction:column;gap:8px;}
-.movie-poster-fallback span{font-size:11px;color:var(--muted);font-weight:600;text-align:center;padding:0 8px;}
-.movie-year{position:absolute;top:7px;left:7px;background:rgba(0,0,0,.8);color:var(--muted);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;}
-.movie-quality{position:absolute;top:7px;right:7px;background:#b44dff;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.5px;}
-.movie-info{padding:9px 10px 10px;}
+.poster-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:38px;color:var(--muted);}
+.poster-fallback span{font-size:11px;font-weight:600;text-align:center;padding:0 8px;color:var(--muted);}
+.movie-info{padding:9px 10px;}
 .movie-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;}
-.movie-meta{font-size:10px;color:var(--muted);font-weight:600;}
-.movie-play-btn{display:block;margin:0 10px 10px;background:#b44dff;color:#fff;border:none;border-radius:7px;padding:7px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;cursor:pointer;text-align:center;text-decoration:none;transition:background .15s;}
-.movie-play-btn:hover{background:#9933ff;}
-.streaming-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:30px;}
-.stream-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .2s;text-decoration:none;}
-.stream-card:hover{border-color:#b44dff;box-shadow:0 0 16px rgba(180,77,255,.25);transform:translateY(-2px);}
-.stream-icon{font-size:30px;flex-shrink:0;}
-.stream-info .stream-name{font-size:14px;font-weight:700;color:var(--text);}
-.stream-info .stream-sub{font-size:11px;color:var(--muted);font-weight:600;margin-top:2px;}
-.stream-badge{font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;margin-top:4px;display:inline-block;}
-.free{background:rgba(0,230,118,.15);color:#00e676;}
-.search-movies{display:flex;gap:8px;margin-bottom:20px;}
-.movie-search-input{flex:1;background:var(--surface);border:2px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-weight:600;outline:none;transition:border-color .2s;font-family:inherit;}
-.movie-search-input:focus{border-color:#b44dff;}
-.movie-search-btn{background:#b44dff;color:#fff;border:none;border-radius:10px;padding:11px 16px;cursor:pointer;font-size:16px;}
+.movie-meta{font-size:10px;color:var(--muted);font-weight:600;display:flex;align-items:center;justify-content:space-between;}
+.movie-actions{display:flex;border-top:1px solid var(--border);}
+.movie-btn{flex:1;padding:7px 4px;font-size:10px;font-weight:700;text-align:center;cursor:pointer;color:var(--muted);transition:color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:3px;}
+.movie-btn:hover{color:#b44dff;background:rgba(180,77,255,.05);}
+.movie-btn.del:hover{color:var(--accent2);background:rgba(255,61,107,.05);}
+.movie-divider{width:1px;background:var(--border);}
+
+/* PLAYER */
+.player-wrap{background:var(--surface);border:1px solid #b44dff55;border-radius:12px;padding:14px;margin-bottom:22px;display:none;}
+.player-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.player-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;}
+.player-close{background:var(--s2);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;}
+.player-close:hover{border-color:var(--accent2);color:var(--accent2);}
+.player-frame{position:relative;padding-bottom:56.25%;border-radius:8px;overflow:hidden;background:#000;}
+.player-frame video{position:absolute;inset:0;width:100%;height:100%;}
 </style>
 </head>
 <body>
@@ -59,68 +84,91 @@
     </div>
   </div>
 </header>
+
 <main>
   <div class="movies-hero">
-    <h1><span class="cm">WATCH</span> ANYTHING.</h1>
-    <p>Free streaming · Public domain classics · Links to legal free platforms</p>
+    <h1><span class="cm">YOUR</span> MOVIES.</h1>
+    <p>Add movies from your own files · stored locally · private</p>
   </div>
 
-  <div class="notice">
-    <strong>How this works:</strong> Public domain movies stream directly here. For newer movies, we link to free legal platforms (Tubi, Pluto TV, etc.) — they're free with ads, no account needed on most. Search below to find anything on those platforms.
-  </div>
-
-  <!-- SEARCH BAR -->
-  <div class="search-movies">
-    <input class="movie-search-input" id="movieSearch" placeholder="Search movies on free platforms..." autocomplete="off">
-    <button class="movie-search-btn" id="movieSearchBtn">🔍</button>
-  </div>
-  <div id="searchResultsArea"></div>
-
-  <!-- FREE STREAMING PLATFORMS -->
-  <div class="movie-section">
-    <h2>🌐 Free Streaming Platforms <div class="line"></div></h2>
-    <div class="streaming-links">
-      <a class="stream-card" href="https://tubitv.com" target="_blank">
-        <span class="stream-icon">📺</span>
-        <div class="stream-info"><div class="stream-name">Tubi</div><div class="stream-sub">50,000+ movies & shows</div><span class="stream-badge free">FREE · No account</span></div>
-      </a>
-      <a class="stream-card" href="https://pluto.tv" target="_blank">
-        <span class="stream-icon">🪐</span>
-        <div class="stream-info"><div class="stream-name">Pluto TV</div><div class="stream-sub">Live TV + on-demand</div><span class="stream-badge free">FREE · No account</span></div>
-      </a>
-      <a class="stream-card" href="https://www.crackle.com" target="_blank">
-        <span class="stream-icon">🎬</span>
-        <div class="stream-info"><div class="stream-name">Crackle</div><div class="stream-sub">Movies & originals</div><span class="stream-badge free">FREE · No account</span></div>
-      </a>
-      <a class="stream-card" href="https://www.plex.tv/watch-free" target="_blank">
-        <span class="stream-icon">🎭</span>
-        <div class="stream-info"><div class="stream-name">Plex</div><div class="stream-sub">Movies, shows, live TV</div><span class="stream-badge free">FREE · No account</span></div>
-      </a>
-      <a class="stream-card" href="https://www.kanopy.com" target="_blank">
-        <span class="stream-icon">🏛️</span>
-        <div class="stream-info"><div class="stream-name">Kanopy</div><div class="stream-sub">Free with library card</div><span class="stream-badge free">FREE · Library card</span></div>
-      </a>
-      <a class="stream-card" href="https://archive.org/details/movies" target="_blank">
-        <span class="stream-icon">📁</span>
-        <div class="stream-info"><div class="stream-name">Internet Archive</div><div class="stream-sub">Public domain classics</div><span class="stream-badge free">FREE · No account</span></div>
-      </a>
+  <!-- HOW TO ADD -->
+  <div class="how-to">
+    <h2>📂 How to Add Your Movies</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">Upload your movie file to your GitHub repo inside a folder called <code>movies/</code><br>
+        <div class="folder-structure">
+your-repo/<br>
+├── <span class="hl">games/</span><br>
+├── <span class="hl2">movies/</span><br>
+│ &nbsp; ├── <span class="hl2">inception.mp4</span><br>
+│ &nbsp; ├── <span class="hl2">interstellar.mp4</span><br>
+│ &nbsp; └── <span class="hl2">poster-inception.jpg</span><br>
+├── index.html<br>
+└── ...
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">Come back to this page and fill in the form below.<br>For <strong>File Path</strong> enter exactly: <code>movies/yourfilename.mp4</code><br>For <strong>Poster</strong> enter the image path or any image URL from the internet (like a Google Images link).</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">Click <strong>Add Movie</strong>. It saves to your browser and appears in your library instantly. <strong>Note:</strong> GitHub has a 100MB file limit per file. For bigger movies use <a href="https://git-lfs.github.com" target="_blank" style="color:var(--accent)">Git LFS</a> or split the file.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">To find poster images: Google the movie name → Images → right-click any image → <strong>Copy image address</strong> → paste in the Poster field.</div>
     </div>
   </div>
 
-  <!-- PUBLIC DOMAIN MOVIES (embed directly) -->
-  <div class="movie-section">
-    <h2>🎞️ Watch Now — Public Domain <div class="line"></div></h2>
-    <div class="movie-grid" id="pdMovieGrid"></div>
+  <!-- ADD FORM -->
+  <div class="add-section">
+    <h2>➕ Add a Movie</h2>
+    <div class="form-row">
+      <label class="form-label">Movie Title</label>
+      <input class="form-input" id="addTitle" placeholder="e.g. Inception" autocomplete="off">
+    </div>
+    <div class="form-row">
+      <label class="form-label">File Path in Repo</label>
+      <input class="form-input" id="addPath" placeholder="movies/inception.mp4" autocomplete="off">
+    </div>
+    <div class="form-row-2">
+      <div class="form-row" style="margin-bottom:0">
+        <label class="form-label">Year</label>
+        <input class="form-input" id="addYear" placeholder="2010" type="number" min="1900" max="2099">
+      </div>
+      <div class="form-row" style="margin-bottom:0">
+        <label class="form-label">Genre</label>
+        <input class="form-input" id="addGenre" placeholder="Sci-Fi">
+      </div>
+    </div>
+    <div class="form-row" style="margin-top:12px">
+      <label class="form-label">Poster Image URL (optional)</label>
+      <input class="form-input" id="addPoster" placeholder="https://... or movies/poster.jpg" autocomplete="off">
+    </div>
+    <button class="add-btn" id="addMovieBtn">🎬 Add Movie</button>
   </div>
 
-  <!-- MOVIE PLAYER -->
-  <div id="moviePlayerWrap" style="display:none;margin-bottom:24px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-      <div id="nowPlayingTitle" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;"></div>
-      <button onclick="document.getElementById('moviePlayerWrap').style.display='none';document.getElementById('movieFrame').src='';" style="background:var(--s2);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;">✕ Close</button>
+  <!-- PLAYER -->
+  <div class="player-wrap" id="playerWrap">
+    <div class="player-hdr">
+      <div class="player-title" id="playerTitle">Now Playing</div>
+      <button class="player-close" id="playerClose">✕ Close</button>
     </div>
-    <div style="position:relative;padding-bottom:56.25%;border-radius:10px;overflow:hidden;background:#000;border:1px solid var(--border);">
-      <iframe id="movieFrame" style="position:absolute;inset:0;width:100%;height:100%;border:none;" allowfullscreen allow="autoplay"></iframe>
+    <div class="player-frame">
+      <video id="moviePlayer" controls autoplay></video>
+    </div>
+  </div>
+
+  <!-- MOVIE LIBRARY -->
+  <div class="movie-section">
+    <h2>🎬 Your Library <div class="line"></div></h2>
+    <div class="movie-grid" id="movieGrid"></div>
+    <div class="no-movies" id="noMovies" style="display:none">
+      <span class="big">🎬</span>
+      <p>No movies added yet.<br>Follow the steps above to add your first movie!</p>
     </div>
   </div>
 </main>
@@ -134,119 +182,110 @@
 </nav>
 
 <script>
-// Public domain movies from Internet Archive — these embed freely
-const PD_MOVIES = [
-  {title:'The General',       year:1926, genre:'Comedy',  quality:'HD', emoji:'🚂', id:'TheGeneral_1927',   thumb:'https://archive.org/services/img/TheGeneral_1927'},
-  {title:'Nosferatu',         year:1922, genre:'Horror',  quality:'HD', emoji:'🧛', id:'Nosferatu_1922',    thumb:'https://archive.org/services/img/Nosferatu_1922'},
-  {title:'Metropolis',        year:1927, genre:'Sci-Fi',  quality:'HD', emoji:'🏙️', id:'Metropolis_1927',   thumb:'https://archive.org/services/img/Metropolis_restored'},
-  {title:'City Lights',       year:1931, genre:'Comedy',  quality:'HD', emoji:'🌆', id:'city_lights',       thumb:'https://archive.org/services/img/city_lights'},
-  {title:'The Kid',           year:1921, genre:'Comedy',  quality:'HD', emoji:'🎩', id:'TheKid_1921',       thumb:'https://archive.org/services/img/TheKid_1921'},
-  {title:'His Girl Friday',   year:1940, genre:'Comedy',  quality:'HD', emoji:'📰', id:'HisGirlFriday_1940',thumb:'https://archive.org/services/img/HisGirlFriday_1940'},
-  {title:'Night of the Living Dead',year:1968,genre:'Horror',quality:'HD',emoji:'🧟',id:'night_of_the_living_dead',thumb:'https://archive.org/services/img/night_of_the_living_dead'},
-  {title:'Reefer Madness',    year:1936, genre:'Drama',   quality:'HD', emoji:'🌿', id:'reefer_madness_1936',thumb:'https://archive.org/services/img/reefer_madness_1936'},
-  {title:'Plan 9 From Outer Space',year:1957,genre:'Sci-Fi',quality:'SD',emoji:'🛸',id:'Plan9fromOuterSpace',thumb:'https://archive.org/services/img/Plan9fromOuterSpace'},
-  {title:'Sherlock Jr.',      year:1924, genre:'Comedy',  quality:'HD', emoji:'🔍', id:'SherlockJr',        thumb:'https://archive.org/services/img/SherlockJr'},
-  {title:'Safety Last!',      year:1923, genre:'Comedy',  quality:'HD', emoji:'🏙️', id:'SafetyLast',        thumb:'https://archive.org/services/img/SafetyLast'},
-  {title:'Steamboat Bill Jr.',year:1928, genre:'Comedy',  quality:'HD', emoji:'🚢', id:'SteamboatBillJr',   thumb:'https://archive.org/services/img/SteamboatBillJr'},
-  {title:'Duck Soup',         year:1933, genre:'Comedy',  quality:'HD', emoji:'🦆', id:'duck_soup_1933',    thumb:'https://archive.org/services/img/duck_soup_1933'},
-  {title:'Dracula',           year:1931, genre:'Horror',  quality:'HD', emoji:'🧛', id:'Dracula_1931',      thumb:'https://archive.org/services/img/Dracula_1931'},
-  {title:'Frankenstein',      year:1931, genre:'Horror',  quality:'HD', emoji:'⚡', id:'Frankenstein_1931', thumb:'https://archive.org/services/img/Frankenstein_1931'},
-  {title:'The Mummy',         year:1932, genre:'Horror',  quality:'HD', emoji:'⚰️', id:'TheMummy_1932',     thumb:'https://archive.org/services/img/TheMummy_1932'},
-  {title:'White Zombie',      year:1932, genre:'Horror',  quality:'SD', emoji:'🧟', id:'white_zombie_bela_lugosi',thumb:'https://archive.org/services/img/white_zombie_bela_lugosi'},
-  {title:'Carnival of Souls', year:1962, genre:'Horror',  quality:'HD', emoji:'👻', id:'CarnivalofSouls',   thumb:'https://archive.org/services/img/CarnivalofSouls'},
-  {title:'It\'s a Wonderful Life',year:1946,genre:'Drama',quality:'HD',emoji:'🎄',id:'Its_a_Wonderful_Life',thumb:'https://archive.org/services/img/Its_a_Wonderful_Life'},
-  {title:'Charade',           year:1963, genre:'Thriller',quality:'HD', emoji:'🕵️', id:'Charade_1963',      thumb:'https://archive.org/services/img/Charade_1963'},
-  {title:'His Girl Friday',   year:1940, genre:'Comedy',  quality:'HD', emoji:'📰', id:'HisGirlFriday_1940',thumb:'https://archive.org/services/img/HisGirlFriday_1940'},
-  {title:'The Phantom of the Opera',year:1925,genre:'Horror',quality:'HD',emoji:'🎭',id:'PhantomOfTheOpera_1925',thumb:'https://archive.org/services/img/PhantomOfTheOpera_1925'},
-];
+const MOVIES_KEY = 'gv_movies_v1';
 
-// Dedupe
-const seen=new Set();
-const MOVIES=PD_MOVIES.filter(m=>!seen.has(m.id)&&seen.add(m.id));
-
-function playMovie(id, title) {
-  const wrap = document.getElementById('moviePlayerWrap');
-  const frame = document.getElementById('movieFrame');
-  const nowPlaying = document.getElementById('nowPlayingTitle');
-  frame.src = `https://archive.org/embed/${id}&autoplay=1`;
-  nowPlaying.textContent = `▶ Now Playing: ${title}`;
-  wrap.style.display = 'block';
-  wrap.scrollIntoView({behavior:'smooth', block:'start'});
+function getMovies() {
+  try { return JSON.parse(localStorage.getItem(MOVIES_KEY) || '[]'); } catch { return []; }
 }
+function saveMovies(m) { localStorage.setItem(MOVIES_KEY, JSON.stringify(m)); }
 
-function renderMovies() {
-  const grid = document.getElementById('pdMovieGrid');
-  grid.innerHTML = MOVIES.map(m => `
-    <div class="movie-card" onclick="playMovie('${m.id}','${m.title.replace(/'/g,"\\'")}')">
-      <div class="movie-poster">
-        <img src="${m.thumb}" alt="${m.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="movie-poster-fallback" style="display:none">${m.emoji}<span>${m.title}</span></div>
-        <div class="movie-year">${m.year}</div>
-        <div class="movie-quality">${m.quality}</div>
+function render() {
+  const movies = getMovies();
+  const grid = document.getElementById('movieGrid');
+  const noMovies = document.getElementById('noMovies');
+  if (movies.length === 0) {
+    grid.innerHTML = '';
+    noMovies.style.display = 'block';
+    return;
+  }
+  noMovies.style.display = 'none';
+  grid.innerHTML = movies.map((m, i) => `
+    <div class="movie-card">
+      <div class="movie-poster" onclick="playMovie(${i})">
+        ${m.poster
+          ? `<img src="${m.poster}" alt="${m.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+             <div class="poster-fallback" style="display:none">🎬<span>${m.title}</span></div>`
+          : `<div class="poster-fallback">🎬<span>${m.title}</span></div>`
+        }
       </div>
       <div class="movie-info">
         <div class="movie-title">${m.title}</div>
-        <div class="movie-meta">${m.genre}</div>
+        <div class="movie-meta">
+          <span>${m.genre || 'Movie'}</span>
+          <span>${m.year || ''}</span>
+        </div>
       </div>
-      <div class="movie-play-btn">▶ Watch Free</div>
+      <div class="movie-actions">
+        <div class="movie-btn" onclick="playMovie(${i})">▶ Play</div>
+        <div class="movie-divider"></div>
+        <div class="movie-btn del" onclick="deleteMovie(${i})">🗑 Remove</div>
+      </div>
     </div>`).join('');
 }
 
-renderMovies();
-
-// Search — opens Tubi search for newer movies
-const searchInput = document.getElementById('movieSearch');
-const searchBtn = document.getElementById('movieSearchBtn');
-const resultsArea = document.getElementById('searchResultsArea');
-
-function doMovieSearch() {
-  const q = searchInput.value.trim();
-  if (!q) return;
-
-  // First check if it matches any of our PD movies
-  const local = MOVIES.filter(m => m.title.toLowerCase().includes(q.toLowerCase()));
-
-  if (local.length > 0) {
-    resultsArea.innerHTML = `<div style="margin-bottom:16px;">
-      <div style="font-size:12px;color:var(--muted);font-weight:700;margin-bottom:10px;">Found in Watch Now:</div>
-      <div class="movie-grid">${local.map(m=>`
-        <div class="movie-card" onclick="playMovie('${m.id}','${m.title.replace(/'/g,"\\'")}')">
-          <div class="movie-poster">
-            <img src="${m.thumb}" alt="${m.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="movie-poster-fallback" style="display:none">${m.emoji}<span>${m.title}</span></div>
-            <div class="movie-year">${m.year}</div>
-          </div>
-          <div class="movie-info"><div class="movie-title">${m.title}</div><div class="movie-meta">${m.genre}</div></div>
-          <div class="movie-play-btn">▶ Watch Free</div>
-        </div>`).join('')}
-      </div>
-    </div>`;
-  }
-
-  // Also show links to search on free platforms
-  const encoded = encodeURIComponent(q);
-  resultsArea.innerHTML += `<div style="background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:20px;">
-    <div style="font-size:13px;font-weight:700;margin-bottom:10px;color:var(--text);">Search "<span style="color:#b44dff">${q}</span>" on free platforms:</div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;">
-      <a href="https://tubitv.com/search/${encoded}" target="_blank" style="background:#b44dff;color:#fff;padding:7px 14px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:700;">📺 Tubi</a>
-      <a href="https://pluto.tv/search#${encoded}" target="_blank" style="background:#333;color:#fff;padding:7px 14px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:700;">🪐 Pluto TV</a>
-      <a href="https://archive.org/search?query=${encoded}&mediatype=movies" target="_blank" style="background:#333;color:#fff;padding:7px 14px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:700;">📁 Archive.org</a>
-      <a href="https://www.crackle.com/search/${encoded}" target="_blank" style="background:#333;color:#fff;padding:7px 14px;border-radius:7px;text-decoration:none;font-size:12px;font-weight:700;">🎬 Crackle</a>
-    </div>
-  </div>`;
+function playMovie(i) {
+  const m = getMovies()[i];
+  if (!m) return;
+  const wrap = document.getElementById('playerWrap');
+  const video = document.getElementById('moviePlayer');
+  const title = document.getElementById('playerTitle');
+  title.textContent = `▶ ${m.title}`;
+  video.src = m.path;
+  video.load();
+  video.play();
+  wrap.style.display = 'block';
+  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-searchBtn.addEventListener('click', doMovieSearch);
-searchInput.addEventListener('keydown', e => { if(e.key==='Enter') doMovieSearch(); });
+function deleteMovie(i) {
+  if (!confirm('Remove this movie from your library?')) return;
+  const movies = getMovies();
+  movies.splice(i, 1);
+  saveMovies(movies);
+  // Stop player if playing this
+  document.getElementById('moviePlayer').pause();
+  document.getElementById('playerWrap').style.display = 'none';
+  render();
+}
+
+document.getElementById('playerClose').addEventListener('click', () => {
+  document.getElementById('moviePlayer').pause();
+  document.getElementById('playerWrap').style.display = 'none';
+});
+
+document.getElementById('addMovieBtn').addEventListener('click', () => {
+  const title  = document.getElementById('addTitle').value.trim();
+  const path   = document.getElementById('addPath').value.trim();
+  const year   = document.getElementById('addYear').value.trim();
+  const genre  = document.getElementById('addGenre').value.trim();
+  const poster = document.getElementById('addPoster').value.trim();
+
+  if (!title) { alert('Please enter a movie title.'); return; }
+  if (!path)  { alert('Please enter the file path (e.g. movies/inception.mp4)'); return; }
+
+  const movies = getMovies();
+  movies.push({ title, path, year, genre, poster });
+  saveMovies(movies);
+
+  // Clear form
+  ['addTitle','addPath','addYear','addGenre','addPoster'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+
+  render();
+  document.getElementById('movieGrid').scrollIntoView({ behavior: 'smooth' });
+});
 
 // Tab cloak
-try{
-  if(localStorage.getItem('gv_cloak')!=='false'){
-    document.title=localStorage.getItem('gv_cloaktitle')||'Google Classroom';
-    const ci=localStorage.getItem('gv_cloakicon')||'';
-    if(ci){let l=document.querySelector("link[rel*='icon']");if(!l){l=document.createElement('link');l.rel='shortcut icon';document.head.appendChild(l);}l.href=ci;}
+try {
+  if (localStorage.getItem('gv_cloak') !== 'false') {
+    document.title = localStorage.getItem('gv_cloaktitle') || 'Google Classroom';
+    const ci = localStorage.getItem('gv_cloakicon') || '';
+    if (ci) { let l = document.querySelector("link[rel*='icon']"); if (!l) { l = document.createElement('link'); l.rel = 'shortcut icon'; document.head.appendChild(l); } l.href = ci; }
   }
-}catch(e){}
+} catch(e) {}
+
+render();
 </script>
 </body>
 </html>
