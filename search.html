@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Search — GameVault</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gamevault.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<header>
+  <div class="hdr">
+    <a href="index.html" class="logo">Game<span>Vault</span></a>
+    <div class="hdr-r"><a href="index.html" class="hbtn">🏠</a><div class="hbtn" id="settingsBtn">⚙️</div></div>
+  </div>
+</header>
+<main>
+  <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" id="searchInput" placeholder="Search 100+ games..." autocomplete="off" autocorrect="off" spellcheck="false"></div>
+  <div class="filter-row" id="filterRow"></div>
+  <div id="resultsInfo" class="results-info" style="display:none"></div>
+  <div id="searchPlaceholder" class="search-placeholder"><span class="big">🕹️</span><h2>SEARCH ALL GAMES</h2><p>Type a game name, category, or keyword<br>e.g. "racing", "ovo", "click", "fight"</p></div>
+  <div class="game-grid" id="searchGrid" style="display:none"></div>
+  <div class="no-results" id="noResults">😶 No games found. Try something else!</div>
+</main>
+<nav class="bottom-nav">
+  <a class="nav-item" href="index.html"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></a>
+  <a class="nav-item active" href="search.html"><span class="nav-icon">🔍</span><span class="nav-label">Search</span></a>
+  <a class="nav-item" href="favorites.html"><span class="nav-icon">⭐</span><span class="nav-label">Favs</span></a>
+  <div class="nav-item" id="navChat"><span class="nav-icon">💬</span><span class="nav-label">Chat</span></div>
+  <div class="nav-item" id="navSettings"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></div>
+</nav>
+<div class="overlay" id="settingsOverlay"><div class="panel"><div class="drag-handle"></div><div class="panel-title">⚙️ Settings</div>
+<div class="setting-row"><div><div class="setting-lbl">🎭 Tab Cloak</div><div class="setting-sub">Disguise this tab's title and icon</div></div><div class="toggle on" id="tgCloak"></div></div>
+<div class="setting-row" style="flex-direction:column;align-items:flex-start;"><div class="setting-lbl" style="margin-bottom:8px">Cloak Preset</div><div class="cloak-box"><div class="cloak-preview" id="cloakPreview"></div><input class="cloak-input" id="cloakInput" placeholder="Custom tab title..." maxlength="80"><div class="cloak-grid"><div class="cloak-preset" data-title="Google Classroom" data-icon="https://ssl.gstatic.com/classroom/favicon.png">🎓 Google Classroom</div><div class="cloak-preset" data-title="Gmail" data-icon="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico">📧 Gmail</div><div class="cloak-preset" data-title="Canvas - Dashboard" data-icon="">📋 Canvas</div><div class="cloak-preset" data-title="Khan Academy" data-icon="">🧠 Khan Academy</div><div class="cloak-preset" data-title="New Tab" data-icon="">🕵️ Stealth</div></div></div></div>
+<div class="setting-row"><div><div class="setting-lbl">⬜ about:blank mode</div><div class="setting-sub">All games open in stealth blank tab</div></div><div class="toggle" id="tgBlank"></div></div>
+<div class="setting-row"><div><div class="setting-lbl">📺 Scanlines</div><div class="setting-sub">Retro CRT overlay</div></div><div class="toggle on" id="tgScan"></div></div>
+<div class="setting-row"><div><div class="setting-lbl">✨ Card Animations</div></div><div class="toggle on" id="tgAnim"></div></div>
+</div></div>
+<button class="chat-fab" id="chatFab" style="position:fixed;">💬<span class="unread" id="unreadBadge" style="display:none">1</span></button>
+<div class="chat-panel" id="chatPanel"><div class="chat-hdr"><div><div class="chat-title">💬 Live Chat</div><div class="chat-online"><div class="online-dot"></div><span id="onlineCount">...</span></div></div><div class="chat-close" id="chatClose">✕</div></div><div class="chat-msgs" id="chatMsgs"></div><div class="chat-input-wrap"><input class="chat-input" id="chatInput" placeholder="Say something..." maxlength="200" autocomplete="off"><button class="chat-send" id="chatSend">▶</button></div></div>
+<script src="gamevault.js"></script>
+</body>
+</html>
