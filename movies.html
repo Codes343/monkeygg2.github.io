@@ -13,36 +13,19 @@
 .movies-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,6vw,48px);letter-spacing:3px;line-height:1;margin-bottom:5px;}
 .cm{color:#b44dff;text-shadow:0 0 30px rgba(180,77,255,.5);}
 .movies-hero p{color:var(--muted);font-size:13px;font-weight:600;}
-
-/* HOW TO ADD */
+/* HOW TO */
 .how-to{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:22px;}
 .how-to h2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;margin-bottom:14px;}
 .step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
 .step:last-child{margin-bottom:0;}
 .step-num{width:26px;height:26px;background:#b44dff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;flex-shrink:0;margin-top:1px;}
-.step-text{font-size:13px;font-weight:600;color:var(--text);line-height:1.5;}
+.step-text{font-size:13px;font-weight:600;color:var(--text);line-height:1.6;}
 .step-text code{background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:monospace;font-size:12px;color:var(--accent);}
 .step-text strong{color:#b44dff;}
-.folder-structure{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:monospace;font-size:12px;color:var(--muted);line-height:1.8;margin-top:10px;}
-.folder-structure .hl{color:var(--accent);}
-.folder-structure .hl2{color:#b44dff;}
-
-/* ADD MOVIE FORM */
-.add-section{background:var(--surface);border:1px solid #b44dff33;border-radius:12px;padding:18px;margin-bottom:22px;}
-.add-section h2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;margin-bottom:14px;}
-.form-row{margin-bottom:12px;}
-.form-label{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px;display:block;}
-.form-input{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--text);font-size:13px;font-weight:600;outline:none;transition:border-color .2s;font-family:inherit;}
-.form-input:focus{border-color:#b44dff;}
-.form-input::placeholder{color:var(--muted);}
-.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.add-btn{width:100%;background:#b44dff;color:#fff;border:none;border-radius:8px;padding:11px;font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1px;cursor:pointer;margin-top:4px;transition:background .15s;}
-.add-btn:hover{background:#9933ff;}
-.no-movies{text-align:center;padding:48px 20px;color:var(--muted);}
-.no-movies .big{font-size:52px;display:block;margin-bottom:12px;}
-.no-movies p{font-size:13px;font-weight:600;line-height:1.6;}
-
-/* MOVIE GRID */
+.folder-tree{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:monospace;font-size:12px;color:var(--muted);line-height:2;margin-top:8px;}
+.folder-tree .a{color:var(--accent);}
+.folder-tree .p{color:#b44dff;}
+/* GRID */
 .movie-section h2{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .movie-section h2 .line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
 .movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:28px;}
@@ -52,17 +35,13 @@
 .movie-poster{width:100%;aspect-ratio:2/3;background:var(--s2);position:relative;overflow:hidden;}
 .movie-poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
 .movie-card:hover .movie-poster img{transform:scale(1.05);}
-.poster-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:38px;color:var(--muted);}
+.poster-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:38px;}
 .poster-fallback span{font-size:11px;font-weight:600;text-align:center;padding:0 8px;color:var(--muted);}
 .movie-info{padding:9px 10px;}
 .movie-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;}
-.movie-meta{font-size:10px;color:var(--muted);font-weight:600;display:flex;align-items:center;justify-content:space-between;}
-.movie-actions{display:flex;border-top:1px solid var(--border);}
-.movie-btn{flex:1;padding:7px 4px;font-size:10px;font-weight:700;text-align:center;cursor:pointer;color:var(--muted);transition:color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:3px;}
-.movie-btn:hover{color:#b44dff;background:rgba(180,77,255,.05);}
-.movie-btn.del:hover{color:var(--accent2);background:rgba(255,61,107,.05);}
-.movie-divider{width:1px;background:var(--border);}
-
+.movie-meta{font-size:10px;color:var(--muted);font-weight:600;display:flex;justify-content:space-between;}
+.watch-btn{display:block;margin:0 10px 10px;background:#b44dff;color:#fff;border:none;border-radius:7px;padding:7px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;cursor:pointer;text-align:center;transition:background .15s;}
+.watch-btn:hover{background:#9933ff;}
 /* PLAYER */
 .player-wrap{background:var(--surface);border:1px solid #b44dff55;border-radius:12px;padding:14px;margin-bottom:22px;display:none;}
 .player-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
@@ -71,6 +50,9 @@
 .player-close:hover{border-color:var(--accent2);color:var(--accent2);}
 .player-frame{position:relative;padding-bottom:56.25%;border-radius:8px;overflow:hidden;background:#000;}
 .player-frame video{position:absolute;inset:0;width:100%;height:100%;}
+.no-movies{text-align:center;padding:60px 20px;color:var(--muted);}
+.no-movies .big{font-size:52px;display:block;margin-bottom:12px;}
+.no-movies p{font-size:13px;font-weight:600;line-height:1.7;}
 </style>
 </head>
 <body>
@@ -84,71 +66,43 @@
     </div>
   </div>
 </header>
-
 <main>
   <div class="movies-hero">
-    <h1><span class="cm">YOUR</span> MOVIES.</h1>
-    <p>Add movies from your own files · stored locally · private</p>
+    <h1><span class="cm">MOVIES</span></h1>
+    <p>Stream movies directly from your repo — works for everyone who visits</p>
   </div>
 
   <!-- HOW TO ADD -->
   <div class="how-to">
-    <h2>📂 How to Add Your Movies</h2>
+    <h2>📂 How to Add Movies (You Only)</h2>
     <div class="step">
       <div class="step-num">1</div>
-      <div class="step-text">Upload your movie file to your GitHub repo inside a folder called <code>movies/</code><br>
-        <div class="folder-structure">
+      <div class="step-text">
+        In your GitHub repo, create a folder called <code>movies/</code> and upload your movie files there. GitHub supports up to <strong>100MB per file</strong>. For bigger files use <a href="https://git-lfs.github.com" target="_blank" style="color:var(--accent)">Git LFS</a>.
+        <div class="folder-tree">
 your-repo/<br>
-├── <span class="hl">games/</span><br>
-├── <span class="hl2">movies/</span><br>
-│ &nbsp; ├── <span class="hl2">inception.mp4</span><br>
-│ &nbsp; ├── <span class="hl2">interstellar.mp4</span><br>
-│ &nbsp; └── <span class="hl2">poster-inception.jpg</span><br>
-├── index.html<br>
-└── ...
+├── <span class="a">games/</span><br>
+├── <span class="p">movies/</span><br>
+│&nbsp;&nbsp;├── <span class="p">inception.mp4</span><br>
+│&nbsp;&nbsp;├── <span class="p">interstellar.mp4</span><br>
+│&nbsp;&nbsp;└── <span class="p">poster-inception.jpg</span><br>
+├── <span class="p">movies.html</span>&nbsp;&nbsp;← edit this file<br>
+└── index.html
         </div>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <div class="step-text">Come back to this page and fill in the form below.<br>For <strong>File Path</strong> enter exactly: <code>movies/yourfilename.mp4</code><br>For <strong>Poster</strong> enter the image path or any image URL from the internet (like a Google Images link).</div>
+      <div class="step-text">
+        Open <code>movies.html</code> in your GitHub repo (click the file, then the pencil ✏️ icon to edit). Find the <code>MOVIES</code> array near the bottom of the <code>&lt;script&gt;</code> tag and add your movie like this:<br><br>
+        <code>{title:'Inception', path:'movies/inception.mp4', year:'2010', genre:'Sci-Fi', poster:'movies/poster-inception.jpg'}</code><br><br>
+        For the poster you can use a path to an image in your repo, or paste any image URL from Google Images (right-click an image → Copy image address).
+      </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <div class="step-text">Click <strong>Add Movie</strong>. It saves to your browser and appears in your library instantly. <strong>Note:</strong> GitHub has a 100MB file limit per file. For bigger movies use <a href="https://git-lfs.github.com" target="_blank" style="color:var(--accent)">Git LFS</a> or split the file.</div>
+      <div class="step-text">Commit the change. Everyone who visits your site will see the movie immediately. The video plays directly in the browser — no external site needed.</div>
     </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-text">To find poster images: Google the movie name → Images → right-click any image → <strong>Copy image address</strong> → paste in the Poster field.</div>
-    </div>
-  </div>
-
-  <!-- ADD FORM -->
-  <div class="add-section">
-    <h2>➕ Add a Movie</h2>
-    <div class="form-row">
-      <label class="form-label">Movie Title</label>
-      <input class="form-input" id="addTitle" placeholder="e.g. Inception" autocomplete="off">
-    </div>
-    <div class="form-row">
-      <label class="form-label">File Path in Repo</label>
-      <input class="form-input" id="addPath" placeholder="movies/inception.mp4" autocomplete="off">
-    </div>
-    <div class="form-row-2">
-      <div class="form-row" style="margin-bottom:0">
-        <label class="form-label">Year</label>
-        <input class="form-input" id="addYear" placeholder="2010" type="number" min="1900" max="2099">
-      </div>
-      <div class="form-row" style="margin-bottom:0">
-        <label class="form-label">Genre</label>
-        <input class="form-input" id="addGenre" placeholder="Sci-Fi">
-      </div>
-    </div>
-    <div class="form-row" style="margin-top:12px">
-      <label class="form-label">Poster Image URL (optional)</label>
-      <input class="form-input" id="addPoster" placeholder="https://... or movies/poster.jpg" autocomplete="off">
-    </div>
-    <button class="add-btn" id="addMovieBtn">🎬 Add Movie</button>
   </div>
 
   <!-- PLAYER -->
@@ -164,11 +118,12 @@ your-repo/<br>
 
   <!-- MOVIE LIBRARY -->
   <div class="movie-section">
-    <h2>🎬 Your Library <div class="line"></div></h2>
+    <h2>🎬 Movies <div class="line"></div></h2>
     <div class="movie-grid" id="movieGrid"></div>
-    <div class="no-movies" id="noMovies" style="display:none">
+    <div class="no-movies" id="noMovies">
       <span class="big">🎬</span>
-      <p>No movies added yet.<br>Follow the steps above to add your first movie!</p>
+      <p>No movies added yet.<br>Follow the steps above to add your first movie.<br><br>
+      <span style="color:var(--accent);font-size:12px;">Tip: edit movies.html in your GitHub repo and add entries to the MOVIES array at the bottom.</span></p>
     </div>
   </div>
 </main>
@@ -178,110 +133,76 @@ your-repo/<br>
   <a class="nav-item active" href="movies.html"><span class="nav-icon">🎬</span><span class="nav-label">Movies</span></a>
   <a class="nav-item" href="search.html"><span class="nav-icon">🔍</span><span class="nav-label">Search</span></a>
   <a class="nav-item" href="favorites.html"><span class="nav-icon">⭐</span><span class="nav-label">Favs</span></a>
-  <div class="nav-item" id="navSettings"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></div>
 </nav>
 
 <script>
-const MOVIES_KEY = 'gv_movies_v1';
+// ═══════════════════════════════════════════════════
+// ADD YOUR MOVIES HERE
+// Each entry: {title, path, year, genre, poster}
+// path = relative path in your repo, e.g. 'movies/inception.mp4'
+// poster = image path or any image URL
+// ═══════════════════════════════════════════════════
+var MOVIES = [
+  // Example (delete this and add your own):
+  // {title:'Inception', path:'movies/inception.mp4', year:'2010', genre:'Sci-Fi', poster:'movies/poster-inception.jpg'},
+];
 
-function getMovies() {
-  try { return JSON.parse(localStorage.getItem(MOVIES_KEY) || '[]'); } catch { return []; }
-}
-function saveMovies(m) { localStorage.setItem(MOVIES_KEY, JSON.stringify(m)); }
-
+// ═══════════════════════════════════════════════════
+// (Do not edit below this line)
+// ═══════════════════════════════════════════════════
 function render() {
-  const movies = getMovies();
-  const grid = document.getElementById('movieGrid');
-  const noMovies = document.getElementById('noMovies');
-  if (movies.length === 0) {
+  var grid = document.getElementById('movieGrid');
+  var noMovies = document.getElementById('noMovies');
+  if (!MOVIES || MOVIES.length === 0) {
     grid.innerHTML = '';
     noMovies.style.display = 'block';
     return;
   }
   noMovies.style.display = 'none';
-  grid.innerHTML = movies.map((m, i) => `
-    <div class="movie-card">
-      <div class="movie-poster" onclick="playMovie(${i})">
-        ${m.poster
-          ? `<img src="${m.poster}" alt="${m.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-             <div class="poster-fallback" style="display:none">🎬<span>${m.title}</span></div>`
-          : `<div class="poster-fallback">🎬<span>${m.title}</span></div>`
-        }
-      </div>
-      <div class="movie-info">
-        <div class="movie-title">${m.title}</div>
-        <div class="movie-meta">
-          <span>${m.genre || 'Movie'}</span>
-          <span>${m.year || ''}</span>
-        </div>
-      </div>
-      <div class="movie-actions">
-        <div class="movie-btn" onclick="playMovie(${i})">▶ Play</div>
-        <div class="movie-divider"></div>
-        <div class="movie-btn del" onclick="deleteMovie(${i})">🗑 Remove</div>
-      </div>
-    </div>`).join('');
+  grid.innerHTML = MOVIES.map(function(m, i) {
+    var poster = m.poster
+      ? '<img src="' + m.poster + '" alt="' + m.title + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+        + '<div class="poster-fallback" style="display:none">🎬<span>' + m.title + '</span></div>'
+      : '<div class="poster-fallback">🎬<span>' + m.title + '</span></div>';
+    return '<div class="movie-card">'
+      + '<div class="movie-poster" onclick="play(' + i + ')">' + poster + '</div>'
+      + '<div class="movie-info">'
+      + '<div class="movie-title">' + m.title + '</div>'
+      + '<div class="movie-meta"><span>' + (m.genre || '') + '</span><span>' + (m.year || '') + '</span></div>'
+      + '</div>'
+      + '<button class="watch-btn" onclick="play(' + i + ')">▶ Watch</button>'
+      + '</div>';
+  }).join('');
 }
 
-function playMovie(i) {
-  const m = getMovies()[i];
-  if (!m) return;
-  const wrap = document.getElementById('playerWrap');
-  const video = document.getElementById('moviePlayer');
-  const title = document.getElementById('playerTitle');
-  title.textContent = `▶ ${m.title}`;
+function play(i) {
+  var m = MOVIES[i]; if (!m) return;
+  var wrap = document.getElementById('playerWrap');
+  var video = document.getElementById('moviePlayer');
+  var title = document.getElementById('playerTitle');
+  title.textContent = '▶ ' + m.title;
   video.src = m.path;
   video.load();
   video.play();
   wrap.style.display = 'block';
-  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  wrap.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-function deleteMovie(i) {
-  if (!confirm('Remove this movie from your library?')) return;
-  const movies = getMovies();
-  movies.splice(i, 1);
-  saveMovies(movies);
-  // Stop player if playing this
+document.getElementById('playerClose').addEventListener('click', function() {
   document.getElementById('moviePlayer').pause();
   document.getElementById('playerWrap').style.display = 'none';
-  render();
-}
-
-document.getElementById('playerClose').addEventListener('click', () => {
-  document.getElementById('moviePlayer').pause();
-  document.getElementById('playerWrap').style.display = 'none';
-});
-
-document.getElementById('addMovieBtn').addEventListener('click', () => {
-  const title  = document.getElementById('addTitle').value.trim();
-  const path   = document.getElementById('addPath').value.trim();
-  const year   = document.getElementById('addYear').value.trim();
-  const genre  = document.getElementById('addGenre').value.trim();
-  const poster = document.getElementById('addPoster').value.trim();
-
-  if (!title) { alert('Please enter a movie title.'); return; }
-  if (!path)  { alert('Please enter the file path (e.g. movies/inception.mp4)'); return; }
-
-  const movies = getMovies();
-  movies.push({ title, path, year, genre, poster });
-  saveMovies(movies);
-
-  // Clear form
-  ['addTitle','addPath','addYear','addGenre','addPoster'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
-
-  render();
-  document.getElementById('movieGrid').scrollIntoView({ behavior: 'smooth' });
 });
 
 // Tab cloak
 try {
   if (localStorage.getItem('gv_cloak') !== 'false') {
     document.title = localStorage.getItem('gv_cloaktitle') || 'Google Classroom';
-    const ci = localStorage.getItem('gv_cloakicon') || '';
-    if (ci) { let l = document.querySelector("link[rel*='icon']"); if (!l) { l = document.createElement('link'); l.rel = 'shortcut icon'; document.head.appendChild(l); } l.href = ci; }
+    var ci = localStorage.getItem('gv_cloakicon') || '';
+    if (ci) {
+      var l = document.querySelector("link[rel*='icon']");
+      if (!l) { l = document.createElement('link'); l.rel = 'shortcut icon'; document.head.appendChild(l); }
+      l.href = ci;
+    }
   }
 } catch(e) {}
 
