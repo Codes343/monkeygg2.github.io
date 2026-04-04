@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200">
+  <rect width="320" height="200" fill="#c0c0c0"/>
+  <!-- border 3D effect --><rect x="10" y="10" width="300" height="180" fill="#c0c0c0" stroke="#fff" stroke-width="3"/>
+  <rect x="13" y="13" width="294" height="174" fill="#c0c0c0" stroke="#808080" stroke-width="2"/>
+  <!-- header --><rect x="16" y="16" width="288" height="40" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <!-- mine counter --><rect x="22" y="20" width="48" height="28" fill="#000"/>
+  <text x="46" y="41" text-anchor="middle" font-family="monospace" font-size="18" fill="#ff0000" font-weight="bold">042</text>
+  <!-- smiley button --><circle cx="160" cy="34" r="13" fill="#ffff00" stroke="#808080" stroke-width="1"/>
+  <circle cx="155" cy="31" r="2" fill="#000"/><circle cx="165" cy="31" r="2" fill="#000"/>
+  <path d="M154,38 Q160,44 166,38" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- timer --><rect x="250" y="20" width="48" height="28" fill="#000"/>
+  <text x="274" y="41" text-anchor="middle" font-family="monospace" font-size="18" fill="#ff0000" font-weight="bold">137</text>
+  <!-- grid --><rect x="16" y="60" width="288" height="130" fill="#c0c0c0"/>
+  <!-- cells (mix of revealed/hidden) --><rect x="18" y="62" width="20" height="20" fill="#a0a0a0" stroke="#808080" stroke-width=".5"/><text x="28" y="77" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#0000ff">1</text>
+  <rect x="40" y="62" width="20" height="20" fill="#a0a0a0" stroke="#808080" stroke-width=".5"/><text x="50" y="77" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#008000">2</text>
+  <rect x="62" y="62" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2" stroke-dasharray="0"/>
+  <rect x="84" y="62" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="106" y="62" width="20" height="20" fill="#a0a0a0" stroke="#808080" stroke-width=".5"/>
+  <!-- mine explosion --><rect x="128" y="62" width="20" height="20" fill="#ff0000"/>
+  <text x="138" y="77" text-anchor="middle" font-family="Arial" font-size="14">💣</text>
+  <rect x="150" y="62" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <!-- flags --><rect x="172" y="62" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/><text x="182" y="77" text-anchor="middle" font-family="Arial" font-size="14">🚩</text>
+  <!-- more cells... --><rect x="194" y="62" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="216" y="62" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="18" y="84" width="20" height="20" fill="#a0a0a0" stroke="#808080" stroke-width=".5"/>
+  <rect x="40" y="84" width="20" height="20" fill="#a0a0a0" stroke="#808080" stroke-width=".5"/><text x="50" y="99" text-anchor="middle" font-family="Arial Black" font-size="12" fill="#008000">3</text>
+  <rect x="62" y="84" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/><text x="72" y="99" text-anchor="middle" font-family="Arial" font-size="14">🚩</text>
+  <rect x="84" y="84" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="106" y="84" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <!-- remaining hidden cells --><rect x="18" y="106" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="40" y="106" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="62" y="106" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="84" y="106" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="106" y="106" width="20" height="20" fill="#c0c0c0" stroke="#fff" stroke-width="2"/>
+  <rect x="128" y="84" width="100" height="80" fill="#a0a0a0" stroke="#808080" stroke-width=".5"/>
+  <text x="178" y="124" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">CLEARED ZONE</text>
+</svg>

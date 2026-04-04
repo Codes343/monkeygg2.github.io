@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200">
+  <defs><linearGradient id="gdbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0050"/><stop offset="100%" stop-color="#0d0030"/></linearGradient></defs>
+  <rect width="320" height="200" fill="url(#gdbg)"/>
+  <!-- ground --><rect x="0" y="165" width="320" height="35" fill="#333" />
+  <rect x="0" y="162" width="320" height="6" fill="#555"/>
+  <!-- obstacles --><rect x="200" y="138" width="28" height="27" fill="#ff3d6b"/>
+  <polygon points="240,165 257,130 274,165" fill="#ff3d6b"/>
+  <rect x="280" y="145" width="20" height="20" fill="#ff3d6b"/>
+  <!-- portals --><ellipse cx="130" cy="155" rx="10" ry="20" fill="none" stroke="#ffd600" stroke-width="2.5"/><ellipse cx="130" cy="155" rx="5" ry="15" fill="#ffd60040"/>
+  <!-- player cube --><rect x="75" y="138" width="27" height="27" rx="3" fill="#00e5ff"/>
+  <rect x="78" y="141" width="21" height="21" rx="2" fill="#00b8cc"/>
+  <line x1="78" y1="141" x2="99" y2="162" stroke="#005a66" stroke-width="1.5"/>
+  <line x1="99" y1="141" x2="78" y2="162" stroke="#005a66" stroke-width="1.5"/>
+  <!-- trail --><rect x="52" y="152" width="20" height="13" rx="2" fill="#00e5ff" opacity=".3"/>
+  <rect x="32" y="153" width="16" height="11" rx="2" fill="#00e5ff" opacity=".15"/>
+  <!-- decorative blocks in background --><rect x="20" y="100" width="20" height="20" fill="#7c4dff" opacity=".4"/>
+  <rect x="50" y="80" width="20" height="20" fill="#ff3d6b" opacity=".4"/>
+  <rect x="160" y="90" width="20" height="20" fill="#7c4dff" opacity=".3"/>
+  <rect x="300" y="100" width="20" height="20" fill="#00e5ff" opacity=".4"/>
+  <!-- progress bar --><rect x="20" y="15" width="280" height="8" rx="4" fill="#333"/>
+  <rect x="20" y="15" width="130" height="8" rx="4" fill="#00e5ff"/>
+  <text x="160" y="35" text-anchor="middle" font-family="Arial Black" font-size="10" fill="white">46%</text>
+  <!-- title --><text x="160" y="55" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="#ffd600">GEOMETRY DASH</text>
+  <text x="160" y="70" text-anchor="middle" font-family="Arial" font-size="9" fill="#aaa">STEREO MADNESS</text>
+</svg>

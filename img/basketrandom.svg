@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200">
+  <rect width="320" height="200" fill="#87CEEB"/>
+  <!-- court bg --><rect x="0" y="130" width="320" height="70" fill="#DEB887"/>
+  <rect x="0" y="128" width="320" height="5" fill="#C8A87A"/>
+  <!-- left basket --><rect x="15" y="50" width="5" height="85" fill="#8B4513"/><rect x="10" y="50" width="50" height="5" fill="#8B4513"/>
+  <ellipse cx="60" cy="57" rx="14" ry="6" fill="none" stroke="#ff6600" stroke-width="3"/>
+  <!-- right basket --><rect x="300" y="50" width="5" height="85" fill="#8B4513"/><rect x="260" y="50" width="50" height="6" fill="#8B4513"/>
+  <ellipse cx="260" cy="58" rx="14" ry="6" fill="none" stroke="#ff6600" stroke-width="3"/>
+  <!-- wacky player 1 - falling sideways --><g transform="rotate(45,120,110)"><circle cx="120" cy="100" r="10" fill="#f5cba7"/><rect x="112" y="110" width="16" height="18" rx="3" fill="#e74c3c"/><line x1="112" y1="115" x2="98" y2="125" stroke="#f5cba7" stroke-width="4"/><line x1="128" y1="115" x2="142" y2="125" stroke="#f5cba7" stroke-width="4"/></g>
+  <!-- wacky player 2 - upside down --><g transform="rotate(180,200,110)"><circle cx="200" cy="100" r="10" fill="#f5cba7"/><rect x="192" y="110" width="16" height="18" rx="3" fill="#3498db"/></g>
+  <!-- basketballs flying everywhere --><circle cx="90" cy="60" r="10" fill="#ff6600"/><line x1="83" y1="60" x2="97" y2="60" stroke="black" stroke-width="1"/><line x1="90" y1="53" x2="90" y2="67" stroke="black" stroke-width="1"/>
+  <circle cx="230" cy="80" r="8" fill="#ff6600"/>
+  <circle cx="155" cy="40" r="6" fill="#ff6600"/>
+  <!-- chaos lines --><line x1="60" y1="30" x2="80" y2="50" stroke="#ff3d6b" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="260" y1="30" x2="240" y2="50" stroke="#7c4dff" stroke-width="2" stroke-dasharray="4,3"/>
+  <!-- title --><text x="160" y="180" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" fill="#1a1a1a">BASKET RANDOM</text>
+</svg>
