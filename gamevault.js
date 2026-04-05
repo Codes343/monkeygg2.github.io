@@ -4,7 +4,7 @@
 
 const GAMES = [
   // HOT
-  {id:'polytrack',        name:'Polytrack',              cat:'racing',     emoji:'🏎️', hot:true,  isNew:true, path:'games/polytrack/',                tip:'WASD or Arrows to drive, R to restart, custom cars included'},
+  {id:'polytrack',        name:'Polytrack',              cat:'racing',     emoji:'🏎️', hot:true,  isNew:true, path:'https://yinnotayl.github.io/Polytrack/',  tip:'WASD or Arrows to drive, R to restart, custom cars included'},
   {id:'slope',            name:'Slope',                  cat:'racing',     emoji:'🔵', hot:true,             path:'games/slope/',                   tip:'Left and right arrows to steer, avoid red blocks'},
   {id:'retro-bowl',       name:'Retro Bowl',             cat:'sports',     emoji:'🏈', hot:true,             path:'games/retro-bowl/',              tip:'Swipe to pass, tap to run and juke'},
   {id:'ovo',              name:'OvO',                    cat:'platformer', emoji:'🤸', hot:true,             path:'games/ovo/',                     tip:'Arrow keys to move, space to jump, down to slide, shift to dash'},
@@ -156,12 +156,14 @@ function openGame(path) {
 
 function openBlank(path) {
   const w = window.open('about:blank', '_blank');
-  if (!w) { alert('Please allow popups to use Blank Tab mode.'); return; }
+  if (!w) { alert('Please allow popups for Blank Tab mode.'); return; }
   const title   = S.cloak ? S.cloakTitle : 'New Tab';
   const favicon = S.cloak ? S.cloakIcon  : '';
   const fav     = favicon ? '<link rel="icon" href="' + favicon + '">' : '';
-  const base    = window.location.href.replace(/\/[^/]*$/, '/');
-  const fullPath = path.startsWith('http') ? path : base + path;
+  // Build correct absolute URL for GitHub Pages
+  const origin  = window.location.origin;
+  const dir     = window.location.pathname.replace(/\/[^/]*$/, '/');
+  const fullPath = path.startsWith('http') ? path : origin + dir + path;
   w.document.write('<!DOCTYPE html><html><head>'
     + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">'
     + '<title>' + title + '</title>' + fav
