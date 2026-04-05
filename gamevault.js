@@ -215,9 +215,14 @@ const BUILT_IN_THUMBS = {
 };
 
 function thumbFor(g) {
+  // 1. User-set custom thumbnail wins
   const custom = S.thumbs[g.id];
   if (custom) return custom;
-  return BUILT_IN_THUMBS[g.id] || null;
+  // 2. Known built-in thumbnail
+  if (BUILT_IN_THUMBS[g.id]) return BUILT_IN_THUMBS[g.id];
+  // 3. Auto-detect thumb.jpg or thumb.png in the game folder
+  if (g.path && g.path.startsWith('games/')) return g.path + 'thumb.jpg';
+  return null;
 }
 
 // ── CARD HTML ─────────────────────────────────────────
