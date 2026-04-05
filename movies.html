@@ -13,7 +13,6 @@
 .movies-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,6vw,48px);letter-spacing:3px;line-height:1;margin-bottom:5px;}
 .cm{color:#b44dff;text-shadow:0 0 30px rgba(180,77,255,.5);}
 .movies-hero p{color:var(--muted);font-size:13px;font-weight:600;}
-/* HOW TO */
 .how-to{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:22px;}
 .how-to h2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;margin-bottom:14px;}
 .step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
@@ -22,37 +21,45 @@
 .step-text{font-size:13px;font-weight:600;color:var(--text);line-height:1.6;}
 .step-text code{background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:monospace;font-size:12px;color:var(--accent);}
 .step-text strong{color:#b44dff;}
-.folder-tree{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:monospace;font-size:12px;color:var(--muted);line-height:2;margin-top:8px;}
-.folder-tree .a{color:var(--accent);}
-.folder-tree .p{color:#b44dff;}
-/* GRID */
+.tabs{display:flex;gap:6px;margin-bottom:16px;}
+.tab{padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--s2);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
+.tab.active{border-color:#b44dff;color:#b44dff;background:rgba(180,77,255,.08);}
 .movie-section h2{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
 .movie-section h2 .line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
-.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:28px;}
-@media(min-width:480px){.movie-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}}
+.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:28px;}
+@media(min-width:480px){.movie-grid{grid-template-columns:repeat(auto-fill,minmax(165px,1fr));}}
 .movie-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;}
 .movie-card:hover{border-color:#b44dff;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.5),0 0 20px rgba(180,77,255,.25);}
 .movie-poster{width:100%;aspect-ratio:2/3;background:var(--s2);position:relative;overflow:hidden;}
 .movie-poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
 .movie-card:hover .movie-poster img{transform:scale(1.05);}
-.poster-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:38px;}
-.poster-fallback span{font-size:11px;font-weight:600;text-align:center;padding:0 8px;color:var(--muted);}
+.poster-fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.poster-fallback .pf-icon{font-size:36px;}
+.poster-fallback .pf-name{font-size:10px;font-weight:600;text-align:center;padding:0 6px;color:var(--muted);line-height:1.3;}
+.movie-badge{position:absolute;top:7px;left:7px;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.5px;}
+.badge-yt{background:#ff0000;color:#fff;}
+.badge-gd{background:#4285f4;color:#fff;}
+.badge-mp4{background:#b44dff;color:#fff;}
 .movie-info{padding:9px 10px;}
 .movie-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;}
 .movie-meta{font-size:10px;color:var(--muted);font-weight:600;display:flex;justify-content:space-between;}
 .watch-btn{display:block;margin:0 10px 10px;background:#b44dff;color:#fff;border:none;border-radius:7px;padding:7px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;cursor:pointer;text-align:center;transition:background .15s;}
 .watch-btn:hover{background:#9933ff;}
-/* PLAYER */
-.player-wrap{background:var(--surface);border:1px solid #b44dff55;border-radius:12px;padding:14px;margin-bottom:22px;display:none;}
-.player-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-.player-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#b44dff;}
-.player-close{background:var(--s2);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;}
-.player-close:hover{border-color:var(--accent2);color:var(--accent2);}
-.player-frame{position:relative;padding-bottom:56.25%;border-radius:8px;overflow:hidden;background:#000;}
-.player-frame video{position:absolute;inset:0;width:100%;height:100%;}
 .no-movies{text-align:center;padding:60px 20px;color:var(--muted);}
 .no-movies .big{font-size:52px;display:block;margin-bottom:12px;}
 .no-movies p{font-size:13px;font-weight:600;line-height:1.7;}
+/* FULLSCREEN PLAYER */
+.player-overlay{position:fixed;inset:0;background:#000;z-index:1000;display:none;flex-direction:column;}
+.player-overlay.open{display:flex;}
+.player-bar{height:44px;background:rgba(0,0,0,.9);display:flex;align-items:center;padding:0 12px;gap:10px;border-bottom:1px solid #1a1a1a;flex-shrink:0;}
+.player-bar-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1.5px;color:#b44dff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pbar-btn{background:#1a1a1a;border:1px solid #2a2a2a;color:#aaa;border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;transition:all .15s;white-space:nowrap;}
+.pbar-btn:hover{background:#2a2a2a;color:#fff;}
+.pbar-btn.full{background:#b44dff;border-color:#b44dff;color:#fff;}
+.pbar-btn.full:hover{background:#9933ff;}
+.player-body{flex:1;position:relative;overflow:hidden;}
+.player-body iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+.player-body video{position:absolute;inset:0;width:100%;height:100%;background:#000;}
 </style>
 </head>
 <body>
@@ -69,61 +76,72 @@
 <main>
   <div class="movies-hero">
     <h1><span class="cm">MOVIES</span></h1>
-    <p>Stream movies directly from your repo — works for everyone who visits</p>
+    <p>YouTube, Google Drive, or direct files — all play fullscreen</p>
   </div>
 
   <!-- HOW TO ADD -->
   <div class="how-to">
-    <h2>📂 How to Add Movies (You Only)</h2>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-text">
-        In your GitHub repo, create a folder called <code>movies/</code> and upload your movie files there. GitHub supports up to <strong>100MB per file</strong>. For bigger files use <a href="https://git-lfs.github.com" target="_blank" style="color:var(--accent)">Git LFS</a>.
-        <div class="folder-tree">
-your-repo/<br>
-├── <span class="a">games/</span><br>
-├── <span class="p">movies/</span><br>
-│&nbsp;&nbsp;├── <span class="p">inception.mp4</span><br>
-│&nbsp;&nbsp;├── <span class="p">interstellar.mp4</span><br>
-│&nbsp;&nbsp;└── <span class="p">poster-inception.jpg</span><br>
-├── <span class="p">movies.html</span>&nbsp;&nbsp;← edit this file<br>
-└── index.html
-        </div>
+    <h2>📂 How to Add Movies (Owner Only)</h2>
+
+    <div class="tabs">
+      <div class="tab active" onclick="showGuide('yt',this)">▶ YouTube</div>
+      <div class="tab" onclick="showGuide('gd',this)">☁ Google Drive</div>
+      <div class="tab" onclick="showGuide('mp4',this)">📁 Direct File</div>
+    </div>
+
+    <div id="guide-yt">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Find the movie on YouTube. Copy the URL from the address bar, e.g. <code>https://www.youtube.com/watch?v=dQw4w9WgXcQ</code></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Open <code>movies.html</code> in your GitHub repo (pencil icon to edit). Find the <code>MOVIES</code> array and add an entry with <code>type:'youtube'</code> and the video ID (the part after <code>v=</code>):<br><br>
+        <code>{title:'Movie Name', type:'youtube', id:'dQw4w9WgXcQ', year:'2024', genre:'Action', poster:'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'}</code><br><br>
+        The poster URL works automatically — just replace the ID in it.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Commit the change. Everyone sees it instantly.</div>
       </div>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-text">
-        Open <code>movies.html</code> in your GitHub repo (click the file, then the pencil ✏️ icon to edit). Find the <code>MOVIES</code> array near the bottom of the <code>&lt;script&gt;</code> tag and add your movie like this:<br><br>
-        <code>{title:'Inception', path:'movies/inception.mp4', year:'2010', genre:'Sci-Fi', poster:'movies/poster-inception.jpg'}</code><br><br>
-        For the poster you can use a path to an image in your repo, or paste any image URL from Google Images (right-click an image → Copy image address).
+
+    <div id="guide-gd" style="display:none">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Upload your movie to Google Drive. Right-click it → <strong>Share</strong> → change to <strong>Anyone with the link</strong> → copy the link.<br>The link looks like: <code>https://drive.google.com/file/d/FILE_ID_HERE/view</code></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Add to the <code>MOVIES</code> array with <code>type:'gdrive'</code> and just the file ID:<br><br>
+        <code>{title:'Movie Name', type:'gdrive', id:'FILE_ID_HERE', year:'2024', genre:'Action', poster:''}</code></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">For the poster, paste any image URL. Google Images → right-click image → Copy image address.</div>
       </div>
     </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-text">Commit the change. Everyone who visits your site will see the movie immediately. The video plays directly in the browser — no external site needed.</div>
+
+    <div id="guide-mp4" style="display:none">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Upload your .mp4 file to a <code>movies/</code> folder in your GitHub repo. Files must be under 25MB for web upload, or use Git LFS for larger files.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Add to the <code>MOVIES</code> array with <code>type:'mp4'</code>:<br><br>
+        <code>{title:'Movie Name', type:'mp4', id:'movies/yourfile.mp4', year:'2024', genre:'Action', poster:'movies/poster.jpg'}</code></div>
+      </div>
     </div>
   </div>
 
-  <!-- PLAYER -->
-  <div class="player-wrap" id="playerWrap">
-    <div class="player-hdr">
-      <div class="player-title" id="playerTitle">Now Playing</div>
-      <button class="player-close" id="playerClose">✕ Close</button>
-    </div>
-    <div class="player-frame">
-      <video id="moviePlayer" controls autoplay></video>
-    </div>
-  </div>
-
-  <!-- MOVIE LIBRARY -->
+  <!-- MOVIE GRID -->
   <div class="movie-section">
     <h2>🎬 Movies <div class="line"></div></h2>
     <div class="movie-grid" id="movieGrid"></div>
     <div class="no-movies" id="noMovies">
       <span class="big">🎬</span>
-      <p>No movies added yet.<br>Follow the steps above to add your first movie.<br><br>
-      <span style="color:var(--accent);font-size:12px;">Tip: edit movies.html in your GitHub repo and add entries to the MOVIES array at the bottom.</span></p>
+      <p>No movies added yet.<br>Edit <code>movies.html</code> in your GitHub repo<br>and add entries to the MOVIES array below.</p>
     </div>
   </div>
 </main>
@@ -135,21 +153,98 @@ your-repo/<br>
   <a class="nav-item" href="favorites.html"><span class="nav-icon">⭐</span><span class="nav-label">Favs</span></a>
 </nav>
 
+<!-- FULLSCREEN PLAYER -->
+<div class="player-overlay" id="playerOverlay">
+  <div class="player-bar">
+    <div class="player-bar-title" id="playerTitle">Now Playing</div>
+    <button class="pbar-btn full" id="fullscreenBtn" onclick="goFullscreen()">⛶ Fullscreen</button>
+    <button class="pbar-btn" onclick="closePlayer()">✕ Close</button>
+  </div>
+  <div class="player-body" id="playerBody"></div>
+</div>
+
 <script>
-// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════
 // ADD YOUR MOVIES HERE
-// Each entry: {title, path, year, genre, poster}
-// path = relative path in your repo, e.g. 'movies/inception.mp4'
-// poster = image path or any image URL
-// ═══════════════════════════════════════════════════
+// Types: 'youtube', 'gdrive', 'mp4'
+//
+// YouTube:    {title:'Name', type:'youtube', id:'VIDEO_ID',   year:'2024', genre:'Action', poster:'https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg'}
+// Google Drive:{title:'Name', type:'gdrive',  id:'FILE_ID',    year:'2024', genre:'Drama',  poster:'https://any-image-url.jpg'}
+// Direct MP4: {title:'Name', type:'mp4',     id:'movies/f.mp4',year:'2024',genre:'Comedy', poster:'movies/poster.jpg'}
+// ═══════════════════════════════════════════════════════
 var MOVIES = [
-  // Example (delete this and add your own):
-  // {title:'Inception', path:'movies/inception.mp4', year:'2010', genre:'Sci-Fi', poster:'movies/poster-inception.jpg'},
+  // Add your movies here, examples:
+  // {title:'Big Buck Bunny', type:'youtube', id:'YE7VzlLtp-4', year:'2008', genre:'Animation', poster:'https://img.youtube.com/vi/YE7VzlLtp-4/hqdefault.jpg'},
 ];
 
-// ═══════════════════════════════════════════════════
-// (Do not edit below this line)
-// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════
+// Do not edit below this line
+// ═══════════════════════════════════════════════════════
+
+function showGuide(tab, el) {
+  document.getElementById('guide-yt').style.display = 'none';
+  document.getElementById('guide-gd').style.display = 'none';
+  document.getElementById('guide-mp4').style.display = 'none';
+  document.getElementById('guide-' + tab).style.display = 'block';
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  el.classList.add('active');
+}
+
+function getEmbedUrl(m) {
+  if (m.type === 'youtube') return 'https://www.youtube.com/embed/' + m.id + '?autoplay=1&rel=0';
+  if (m.type === 'gdrive')  return 'https://drive.google.com/file/d/' + m.id + '/preview';
+  return null;
+}
+
+function play(i) {
+  var m = MOVIES[i]; if (!m) return;
+  var overlay = document.getElementById('playerOverlay');
+  var body    = document.getElementById('playerBody');
+  var title   = document.getElementById('playerTitle');
+
+  title.textContent = m.title + (m.year ? ' (' + m.year + ')' : '');
+  body.innerHTML = '';
+
+  if (m.type === 'mp4') {
+    var vid = document.createElement('video');
+    vid.src = m.id;
+    vid.controls = true;
+    vid.autoplay = true;
+    vid.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;background:#000;';
+    body.appendChild(vid);
+  } else {
+    var iframe = document.createElement('iframe');
+    iframe.src = getEmbedUrl(m);
+    iframe.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    body.appendChild(iframe);
+  }
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePlayer() {
+  var overlay = document.getElementById('playerOverlay');
+  var body    = document.getElementById('playerBody');
+  overlay.classList.remove('open');
+  body.innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+function goFullscreen() {
+  var body = document.getElementById('playerBody');
+  var el = body.querySelector('iframe') || body.querySelector('video') || body;
+  var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
+  if (req) req.call(el);
+}
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePlayer();
+});
+
 function render() {
   var grid = document.getElementById('movieGrid');
   var noMovies = document.getElementById('noMovies');
@@ -159,13 +254,21 @@ function render() {
     return;
   }
   noMovies.style.display = 'none';
+
+  var badgeMap = {youtube:'YT', gdrive:'DRIVE', mp4:'FILE'};
+  var badgeClass = {youtube:'badge-yt', gdrive:'badge-gd', mp4:'badge-mp4'};
+
   grid.innerHTML = MOVIES.map(function(m, i) {
     var poster = m.poster
       ? '<img src="' + m.poster + '" alt="' + m.title + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
-        + '<div class="poster-fallback" style="display:none">🎬<span>' + m.title + '</span></div>'
-      : '<div class="poster-fallback">🎬<span>' + m.title + '</span></div>';
+        + '<div class="poster-fallback" style="display:none"><div class="pf-icon">🎬</div><div class="pf-name">' + m.title + '</div></div>'
+      : '<div class="poster-fallback"><div class="pf-icon">🎬</div><div class="pf-name">' + m.title + '</div></div>';
+
     return '<div class="movie-card">'
-      + '<div class="movie-poster" onclick="play(' + i + ')">' + poster + '</div>'
+      + '<div class="movie-poster" onclick="play(' + i + ')">'
+      + poster
+      + '<div class="movie-badge ' + (badgeClass[m.type] || 'badge-mp4') + '">' + (badgeMap[m.type] || 'FILE') + '</div>'
+      + '</div>'
       + '<div class="movie-info">'
       + '<div class="movie-title">' + m.title + '</div>'
       + '<div class="movie-meta"><span>' + (m.genre || '') + '</span><span>' + (m.year || '') + '</span></div>'
@@ -174,24 +277,6 @@ function render() {
       + '</div>';
   }).join('');
 }
-
-function play(i) {
-  var m = MOVIES[i]; if (!m) return;
-  var wrap = document.getElementById('playerWrap');
-  var video = document.getElementById('moviePlayer');
-  var title = document.getElementById('playerTitle');
-  title.textContent = '▶ ' + m.title;
-  video.src = m.path;
-  video.load();
-  video.play();
-  wrap.style.display = 'block';
-  wrap.scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-document.getElementById('playerClose').addEventListener('click', function() {
-  document.getElementById('moviePlayer').pause();
-  document.getElementById('playerWrap').style.display = 'none';
-});
 
 // Tab cloak
 try {
