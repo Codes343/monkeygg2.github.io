@@ -9,6 +9,7 @@ const GAMES = [
   {id:'retro-bowl',       name:'Retro Bowl',             cat:'sports',     emoji:'🏈', hot:true,             path:'games/retro-bowl/',              tip:'Swipe to pass, tap to run and juke'},
   {id:'ovo',              name:'OvO',                    cat:'platformer', emoji:'🤸', hot:true,             path:'games/ovo/',                     tip:'Arrow keys to move, space to jump, down to slide, shift to dash'},
   {id:'1v1-lol',          name:'1v1.LOL',                cat:'action',     emoji:'🏗️', hot:true,             path:'games/1v1-lol/',                 tip:'WASD to move, mouse to aim, Z and X to build'},
+  {id:'geometrydash',    name:'Geometry Dash',          cat:'platformer', emoji:'🔷', hot:true,             path:'games/geometrydash/',tip:'Tap or space to jump, match the beat'},
   {id:'cookie-clicker',   name:'Cookie Clicker',         cat:'clicker',    emoji:'🍪', hot:true,             path:'games/cookie-clicker/',          tip:'Click the big cookie'},
   {id:'basket-random',    name:'Basket Random',          cat:'sports',     emoji:'🏀', hot:true,             path:'games/basket-random/',           tip:'W for player 1, up arrow for player 2'},
   {id:'basketball-stars', name:'Basketball Stars',       cat:'sports',     emoji:'⛹️', hot:true,             path:'games/basketball-stars/',        tip:'WASD to move, space to shoot or steal'},
@@ -109,7 +110,6 @@ const GAMES = [
   {id:'ages-of-conflict',  name:'Ages of Conflict',      cat:'strategy',   emoji:'⚔️', hot:false,            path:'games/ages-of-conflict/',        tip:'Command troops and conquer territories'},
   {id:'awesome-tanks',     name:'Awesome Tanks',         cat:'strategy',   emoji:'🪖', hot:false,            path:'games/awesome-tanks/',           tip:'WASD to move, mouse to aim, blast enemies'},
   {id:'awesome-tanks-2',   name:'Awesome Tanks 2',       cat:'strategy',   emoji:'🔴', hot:false,            path:'games/awesome-tanks-2/',         tip:'More upgrades and bigger levels'},
-  {id:'geometrydash',   name:'Geometry Dash',       cat:'Platformer',   emoji:'🔴', hot:false,            path:'games/geometrydash/',         tip:'Tap or space to jump, match the beat'},
 ];
 
 const CATS = [
@@ -220,8 +220,8 @@ function thumbFor(g) {
   if (custom) return custom;
   // 2. Known built-in thumbnail
   if (BUILT_IN_THUMBS[g.id]) return BUILT_IN_THUMBS[g.id];
-  // 3. Auto-detect thumb.jpg or thumb.png in the game folder
-  if (g.path && g.path.startsWith('games/')) return g.path + 'thumb.jpg';
+  // 3. Auto-detect thumb.png or thumb.jpg in the game folder
+  if (g.path && g.path.startsWith('games/')) return g.path + 'thumb.png';
   return null;
 }
 
@@ -229,10 +229,19 @@ function thumbFor(g) {
 function cardHTML(g) {
   const isFav = S.favs.includes(g.id);
   const thumb  = thumbFor(g);
-  const thumbEl = thumb
-    ? '<img src="' + thumb + '" alt="' + g.name + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
-      + '<div class="thumb-fallback" style="display:none">' + g.emoji + '</div>'
-    : '<div class="thumb-fallback">' + g.emoji + '</div>';
+  // Try thumb.png, fallback to thumb.jpg, fallback to emoji
+  var thumbEl;
+  if (thumb && thumb.endsWith('thumb.png')) {
+    var jpgThumb = thumb.replace('thumb.png', 'thumb.jpg');
+    thumbEl = '<img src="' + thumb + '" alt="' + g.name + '" loading="lazy"'
+      + ' onerror="if(this.src.indexOf(\'thumb.png\')>-1){this.src=\''+jpgThumb+'\'}else{this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'}">'
+      + '<div class="thumb-fallback" style="display:none">' + g.emoji + '</div>';
+  } else if (thumb) {
+    thumbEl = '<img src="' + thumb + '" alt="' + g.name + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+      + '<div class="thumb-fallback" style="display:none">' + g.emoji + '</div>';
+  } else {
+    thumbEl = '<div class="thumb-fallback">' + g.emoji + '</div>';
+  }
 
   return '<div class="game-card' + (g.hot ? ' hot' : '') + (g.isNew ? ' isnew' : '') + '"'
     + ' data-id="' + g.id + '" data-cat="' + g.cat + '" data-path="' + g.path + '"'
