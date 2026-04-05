@@ -9,7 +9,6 @@ const GAMES = [
   {id:'retro-bowl',       name:'Retro Bowl',             cat:'sports',     emoji:'🏈', hot:true,             path:'games/retro-bowl/',              tip:'Swipe to pass, tap to run and juke'},
   {id:'ovo',              name:'OvO',                    cat:'platformer', emoji:'🤸', hot:true,             path:'games/ovo/',                     tip:'Arrow keys to move, space to jump, down to slide, shift to dash'},
   {id:'1v1-lol',          name:'1v1.LOL',                cat:'action',     emoji:'🏗️', hot:true,             path:'games/1v1-lol/',                 tip:'WASD to move, mouse to aim, Z and X to build'},
-  {id:'geometry-dash',    name:'Geometry Dash',          cat:'platformer', emoji:'🔷', hot:true,             path:'games/geometry-dash-remastered/',tip:'Tap or space to jump, match the beat'},
   {id:'cookie-clicker',   name:'Cookie Clicker',         cat:'clicker',    emoji:'🍪', hot:true,             path:'games/cookie-clicker/',          tip:'Click the big cookie'},
   {id:'basket-random',    name:'Basket Random',          cat:'sports',     emoji:'🏀', hot:true,             path:'games/basket-random/',           tip:'W for player 1, up arrow for player 2'},
   {id:'basketball-stars', name:'Basketball Stars',       cat:'sports',     emoji:'⛹️', hot:true,             path:'games/basketball-stars/',        tip:'WASD to move, space to shoot or steal'},
@@ -110,6 +109,7 @@ const GAMES = [
   {id:'ages-of-conflict',  name:'Ages of Conflict',      cat:'strategy',   emoji:'⚔️', hot:false,            path:'games/ages-of-conflict/',        tip:'Command troops and conquer territories'},
   {id:'awesome-tanks',     name:'Awesome Tanks',         cat:'strategy',   emoji:'🪖', hot:false,            path:'games/awesome-tanks/',           tip:'WASD to move, mouse to aim, blast enemies'},
   {id:'awesome-tanks-2',   name:'Awesome Tanks 2',       cat:'strategy',   emoji:'🔴', hot:false,            path:'games/awesome-tanks-2/',         tip:'More upgrades and bigger levels'},
+  {id:'geometrydash',   name:'Geometry Dash',       cat:'Platformer',   emoji:'🔴', hot:false,            path:'games/geometrydash/',         tip:'Tap or space to jump, match the beat'},
 ];
 
 const CATS = [
