@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="gamevault.css">
 <style>
-.settings-hero{background:linear-gradient(135deg,#0f1318,#0a1520 50%,#0f1318);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:20px;}
+.settings-hero{background:linear-gradient(135deg,#0f1318,#0a1520);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:20px;}
 .settings-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,6vw,42px);letter-spacing:3px;margin-bottom:4px;}
 .sg{color:var(--accent);}
 .settings-hero p{color:var(--muted);font-size:13px;font-weight:600;}
@@ -30,8 +30,7 @@
 .cloak-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
 .cloak-preset{padding:7px 10px;background:var(--bg);border:1px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .15s;text-align:left;}
 .cloak-preset:hover{border-color:var(--accent);color:var(--accent);}
-/* THUMB MANAGER */
-.thumb-manager-list{max-height:400px;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:7px;}
+.thumb-manager-list{max-height:380px;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:7px;}
 .thumb-row{display:flex;align-items:center;gap:10px;background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:7px 10px;}
 .thumb-row-emoji{font-size:18px;flex-shrink:0;}
 .thumb-row-name{font-size:12px;font-weight:700;width:100px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -41,17 +40,29 @@
 .save-btn{flex:1;background:var(--accent);color:#000;border:none;border-radius:8px;padding:10px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;cursor:pointer;}
 .clear-btn{background:var(--s2);color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
 .clear-btn:hover{border-color:var(--accent2);color:var(--accent2);}
-.about-box{padding:16px;color:var(--muted);font-size:13px;font-weight:600;line-height:1.7;}
-.about-box a{color:var(--accent);text-decoration:none;}
 
-.bm-item{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px;}
-.bm-item-name{font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--text);margin-bottom:4px;}
-.bm-item-desc{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px;line-height:1.5;}
-.bm-item-works{font-size:11px;font-weight:700;color:#ff9d00;margin-bottom:10px;}
-.bm-copy-btn{width:100%;background:#ff9d00;color:#000;border:none;border-radius:7px;padding:9px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:1px;cursor:pointer;margin-bottom:6px;}
-.bm-toggle{font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px;}
+/* BOOKMARKLETS */
+.bm-howto{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:14px;margin:0 16px 14px;}
+.bm-howto-title{font-size:12px;font-weight:700;color:#ff9d00;letter-spacing:1px;margin-bottom:10px;}
+.bm-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;}
+.bm-step:last-child{margin-bottom:0;}
+.bm-step-num{width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:12px;color:#000;flex-shrink:0;margin-top:1px;}
+.bm-step-text{font-size:12px;font-weight:600;color:var(--text);line-height:1.6;}
+.bm-step-text strong{color:#ff9d00;}
+.bm-item{margin:0 16px 14px;background:var(--s2);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.bm-item-header{padding:12px 12px 8px;}
+.bm-item-name{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:1.5px;margin-bottom:3px;}
+.bm-item-desc{font-size:12px;font-weight:600;color:var(--muted);line-height:1.5;margin-bottom:4px;}
+.bm-item-works{font-size:11px;font-weight:700;color:#ff9d00;}
+.bm-item-actions{padding:0 12px 12px;display:flex;flex-direction:column;gap:6px;}
+.bm-copy-btn{width:100%;background:#ff9d00;color:#000;border:none;border-radius:7px;padding:10px;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;cursor:pointer;}
+.bm-copy-btn:active{background:#cc7d00;}
+.bm-toggle{font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:4px 0;}
 .bm-toggle:hover{color:var(--accent);}
-.bm-code-block{margin-top:8px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:9px;font-family:monospace;font-size:10px;color:var(--muted);line-height:1.6;word-break:break-all;max-height:100px;overflow-y:auto;display:none;}
+.bm-code-block{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:9px;font-family:monospace;font-size:10px;color:var(--muted);line-height:1.6;word-break:break-all;max-height:110px;overflow-y:auto;margin-top:4px;display:none;}
+
+.about-box{padding:16px;color:var(--muted);font-size:13px;font-weight:600;line-height:1.7;}
+.about-box strong{color:var(--text);}
 </style>
 </head>
 <body>
@@ -95,7 +106,7 @@
   <div class="settings-section">
     <div class="settings-section-title">🎮 Gameplay</div>
     <div class="setting-row">
-      <div><div class="setting-lbl">Open in about:blank</div><div class="setting-sub">Games open in a stealth blank tab — harder to detect</div></div>
+      <div><div class="setting-lbl">Open in about:blank</div><div class="setting-sub">Games open in a stealth blank tab — harder to detect on school networks</div></div>
       <div class="toggle" id="tgBlank"></div>
     </div>
     <div class="setting-row">
@@ -112,7 +123,7 @@
   <div class="settings-section">
     <div class="settings-section-title">🖼️ Game Thumbnails</div>
     <div class="setting-row" style="border-bottom:none;">
-      <div><div class="setting-lbl">Custom Thumbnail URLs</div><div class="setting-sub">Paste any image URL next to a game to override its thumbnail. Or add thumb.jpg to the game folder.</div></div>
+      <div><div class="setting-lbl">Custom Thumbnail URLs</div><div class="setting-sub">Paste any image URL next to a game. Or just drop a thumb.jpg into the game folder in your repo.</div></div>
     </div>
     <div class="thumb-manager-list" id="thumbManagerList"></div>
     <div class="thumb-footer">
@@ -124,45 +135,43 @@
   <!-- BOOKMARKLETS -->
   <div class="settings-section">
     <div class="settings-section-title">📎 Bookmarklets</div>
-    <div class="setting-row" style="border-bottom:none;flex-direction:column;align-items:flex-start;">
-      <div class="setting-lbl" style="margin-bottom:10px">How to add a bookmarklet on mobile</div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px;width:100%;margin-bottom:14px;">
-        <div style="font-size:12px;font-weight:700;color:#ff9d00;margin-bottom:10px;letter-spacing:1px;">STEP BY STEP — MOBILE</div>
-        <div style="display:flex;flex-direction:column;gap:9px;">
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">1</div>
-            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Copy the bookmarklet code using the Copy button below.</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">2</div>
-            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Open any webpage in your browser (e.g. google.com). Tap the <strong style="color:#ff9d00">Share button</strong> then tap <strong style="color:#ff9d00">Add Bookmark</strong>. Save it — name it anything like "PT Save".</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">3</div>
-            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Now find that bookmark. In <strong style="color:#ff9d00">Safari</strong>: tap the book icon → Bookmarks → find it → tap and hold → Edit. In <strong style="color:#ff9d00">Chrome</strong>: tap the 3 dots → Bookmarks → find it → tap and hold → Edit bookmark.</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">4</div>
-            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);"><strong style="color:#ff9d00">Clear the URL field completely</strong> then paste the copied bookmarklet code into it. Save.</div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:flex-start;">
-            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">5</div>
-            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Go to the site you want to use it on (e.g. PolyTrack). Open your bookmarks, find it, and tap it. The tool appears on the page.</div>
-          </div>
-        </div>
+
+    <!-- HOW TO -->
+    <div class="bm-howto" style="margin:14px 16px 14px;">
+      <div class="bm-howto-title">📱 HOW TO ADD A BOOKMARKLET ON MOBILE</div>
+      <div class="bm-step">
+        <div class="bm-step-num">1</div>
+        <div class="bm-step-text">Tap <strong>Copy Bookmarklet Code</strong> on any bookmarklet below.</div>
       </div>
-      <div id="bmList" style="width:100%;display:flex;flex-direction:column;gap:10px;"></div>
+      <div class="bm-step">
+        <div class="bm-step-num">2</div>
+        <div class="bm-step-text">Open any webpage (like google.com). Tap the <strong>Share button</strong> then tap <strong>Add Bookmark</strong>. Name it anything (e.g. "PT Save") and save it.</div>
+      </div>
+      <div class="bm-step">
+        <div class="bm-step-num">3</div>
+        <div class="bm-step-text"><strong>Safari:</strong> Tap the book icon → Bookmarks → find your bookmark → tap and hold → <strong>Edit</strong>.<br><strong>Chrome:</strong> Tap the 3 dots → Bookmarks → find it → tap and hold → <strong>Edit bookmark</strong>.</div>
+      </div>
+      <div class="bm-step">
+        <div class="bm-step-num">4</div>
+        <div class="bm-step-text"><strong>Clear the URL field completely</strong> then paste the copied code into it. Save.</div>
+      </div>
+      <div class="bm-step">
+        <div class="bm-step-num">5</div>
+        <div class="bm-step-text">Go to the site you want to use it on (e.g. PolyTrack). Open your bookmarks and tap it. The tool appears instantly.</div>
+      </div>
     </div>
+
+    <!-- BOOKMARKLET CARDS rendered by JS below -->
+    <div id="bmList"></div>
   </div>
 
   <!-- ABOUT -->
   <div class="settings-section">
     <div class="settings-section-title">ℹ️ About</div>
     <div class="about-box">
-      <strong style="color:var(--text)">GameVault</strong> — 100+ self-hosted games, always unblocked.<br>
+      <strong>GameVault</strong> — 100+ self-hosted games, always unblocked.<br>
       All game files are hosted directly in your GitHub repo.<br>
-      No ads. No tracking. No external dependencies.<br><br>
-      <a href="bookmarklets.html">📎 Bookmarklets Library →</a>
+      No ads. No tracking. No external dependencies.
     </div>
   </div>
 </main>
@@ -177,7 +186,7 @@
 
 <script src="gamevault.js"></script>
 <script>
-// Init settings on this full page
+// ── SETTINGS INIT ─────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.toggle('scanlines', S.scan);
   applyCloak();
@@ -241,15 +250,17 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function(){ saveBtn.textContent = '💾 Save Thumbnails'; }, 2000);
     });
   }
+
+  renderBMs();
 });
 
+// ── BOOKMARKLETS ──────────────────────────────────────
 var BOOKMARKLETS = [
   {
     id: 'polytrack-save',
-    name: 'PolyTrack Save Manager',
-    icon: '🏎️',
-    desc: 'Export and import your PolyTrack save data. Transfer progress between browsers or devices. Shows your run count and best time.',
-    works: 'Use on: any PolyTrack page',
+    name: '🏎️ PolyTrack Save Manager',
+    desc: 'Export and import your PolyTrack save data to transfer progress between browsers or devices. Shows your run count and best time. Drag to move, minimize to hide.',
+    works: 'Use on: any PolyTrack page (polytrack.io or your hosted version)',
     code: 'javascript:(function(){if(document.getElementById("ptSaveManager"))return;let box=document.createElement("div");box.id="ptSaveManager";box.style="position:fixed;top:80px;right:20px;z-index:99999;background:#111;color:#0f0;border:2px solid #0f0;font-family:monospace;width:320px;";let header=document.createElement("div");header.style="cursor:move;background:#0f0;color:#000;padding:5px;font-weight:bold;";header.innerHTML="PolyTrack Save Manager";let minimizeBtn=document.createElement("button");minimizeBtn.textContent="_";minimizeBtn.style="float:right;margin-left:5px;";header.appendChild(minimizeBtn);let closeBtn=document.createElement("button");closeBtn.textContent="X";closeBtn.style="float:right;background:red;color:white;";closeBtn.onclick=()=>box.remove();header.appendChild(closeBtn);box.appendChild(header);let content=document.createElement("div");content.style="padding:8px;";box.appendChild(content);let textarea=document.createElement("textarea");textarea.style="width:100%;height:90px;background:#000;color:#0f0;";content.appendChild(textarea);let status=document.createElement("div");status.style="font-size:12px;margin-top:4px;";content.appendChild(status);let info=document.createElement("div");info.style="font-size:12px;margin-top:6px;color:#8f8;";content.appendChild(info);function getData(){let data={};for(let k in localStorage){if(k.startsWith("polytrack_v3")){data[k]=localStorage.getItem(k);}}return data;}function decodeInfo(data){let best=Infinity;let count=0;for(let k in data){if(k.includes("record")){try{let obj=JSON.parse(data[k]);let frames=parseInt(obj.frames);if(!isNaN(frames)){count++;if(frames<best)best=frames;}}catch{}}}if(count===0){info.textContent="No runs found";}else{let seconds=(best/1000).toFixed(3);info.textContent="Runs: "+count+" | Best: "+seconds+"s ("+best+")";}}async function copy(text){try{await navigator.clipboard.writeText(text);status.textContent="Copied!";}catch{status.textContent="Copy failed";}}async function paste(){try{let t=await navigator.clipboard.readText();textarea.value=t;status.textContent="Pasted!";return t;}catch{status.textContent="Paste blocked";}}function doImport(text){try{let data=JSON.parse(text);for(let k in data){localStorage.setItem(k,data[k]);}decodeInfo(data);alert("Imported! Refresh.");}catch{alert("Invalid data");}}function exportData(){let data=getData();let str=JSON.stringify(data);textarea.value=str;decodeInfo(data);}let btns=document.createElement("div");btns.style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;";content.appendChild(btns);function btn(name,fn){let b=document.createElement("button");b.textContent=name;b.style="flex:1;";b.onclick=fn;return b;}btns.appendChild(btn("Export",exportData));btns.appendChild(btn("Copy",()=>copy(textarea.value)));btns.appendChild(btn("Export+Copy",()=>{let data=getData();let str=JSON.stringify(data);textarea.value=str;decodeInfo(data);copy(str);}));btns.appendChild(btn("Paste+Import",async()=>{let t=await paste();if(t)doImport(t);}));btns.appendChild(btn("Import",()=>doImport(textarea.value)));btns.appendChild(btn("Clear",()=>{textarea.value="";info.textContent="";}));document.body.appendChild(box);let down=false,ox,oy;header.onmousedown=e=>{down=true;ox=box.offsetLeft-e.clientX;oy=box.offsetTop-e.clientY;};document.onmouseup=()=>{down=false;let x=box.offsetLeft;let w=window.innerWidth;if(x<50)box.style.left="0px";if(x>w-350)box.style.left=(w-320)+"px";};document.onmousemove=e=>{if(!down)return;box.style.left=(e.clientX+ox)+"px";box.style.top=(e.clientY+oy)+"px";box.style.right="auto";};let minimized=false;minimizeBtn.onclick=()=>{minimized=!minimized;content.style.display=minimized?"none":"block";};})();'
   },
 ];
@@ -259,12 +270,16 @@ function renderBMs() {
   if (!list) return;
   list.innerHTML = BOOKMARKLETS.map(function(bm) {
     return '<div class="bm-item">'
-      + '<div class="bm-item-name">' + bm.icon + ' ' + bm.name + '</div>'
+      + '<div class="bm-item-header">'
+      + '<div class="bm-item-name">' + bm.name + '</div>'
       + '<div class="bm-item-desc">' + bm.desc + '</div>'
       + '<div class="bm-item-works">' + bm.works + '</div>'
-      + '<button class="bm-copy-btn" onclick="copyBM('' + bm.id + '',this)">📋 Copy Bookmarklet Code</button>'
-      + '<div class="bm-toggle" onclick="toggleBMCode('' + bm.id + '',this)">▶ Show Code</div>'
+      + '</div>'
+      + '<div class="bm-item-actions">'
+      + '<button class="bm-copy-btn" onclick="copyBM(\'' + bm.id + '\',this)">📋 Copy Bookmarklet Code</button>'
+      + '<div class="bm-toggle" onclick="toggleBMCode(\'' + bm.id + '\',this)">▶ Show Code</div>'
       + '<div class="bm-code-block" id="bmc-' + bm.id + '">' + bm.code.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>'
+      + '</div>'
       + '</div>';
   }).join('');
 }
@@ -287,12 +302,10 @@ function copyBM(id, btn) {
 function toggleBMCode(id, el) {
   var code = document.getElementById('bmc-' + id);
   if (!code) return;
-  var vis = code.style.display !== 'none' && code.style.display !== '';
+  var vis = code.style.display === 'block';
   code.style.display = vis ? 'none' : 'block';
   el.textContent = vis ? '▶ Show Code' : '▼ Hide Code';
 }
-
-renderBMs();
 </script>
 </body>
 </html>
