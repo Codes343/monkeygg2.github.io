@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Bookmarklets — GameVault</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📎</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gamevault.css">
+<style>
+.bm-hero{background:linear-gradient(135deg,#0f1318,#0a1520 50%,#0f1318);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:20px;}
+.bm-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,6vw,42px);letter-spacing:3px;margin-bottom:4px;}
+.bc{color:#ff9d00;text-shadow:0 0 30px rgba(255,157,0,.5);}
+.bm-hero p{color:var(--muted);font-size:13px;font-weight:600;}
+.how-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px;}
+.how-box h2{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:#ff9d00;margin-bottom:12px;}
+.how-steps{display:flex;flex-direction:column;gap:10px;}
+.how-step{display:flex;gap:10px;align-items:flex-start;}
+.how-num{width:24px;height:24px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:13px;color:#000;flex-shrink:0;margin-top:1px;}
+.how-text{font-size:13px;font-weight:600;color:var(--text);line-height:1.6;}
+.how-text code{background:var(--s2);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:monospace;font-size:11px;color:var(--accent);}
+.bm-grid{display:flex;flex-direction:column;gap:14px;margin-bottom:28px;}
+.bm-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.bm-card-header{padding:14px 16px 10px;display:flex;align-items:flex-start;gap:12px;}
+.bm-icon{font-size:28px;flex-shrink:0;}
+.bm-info{flex:1;}
+.bm-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1.5px;color:var(--text);margin-bottom:3px;}
+.bm-desc{font-size:12px;font-weight:600;color:var(--muted);line-height:1.5;}
+.bm-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.5px;margin-top:5px;}
+.tag-game{background:rgba(0,229,255,.1);color:var(--accent);border:1px solid rgba(0,229,255,.2);}
+.tag-util{background:rgba(255,157,0,.1);color:#ff9d00;border:1px solid rgba(255,157,0,.2);}
+.bm-actions{padding:0 16px 14px;display:flex;gap:8px;flex-wrap:wrap;}
+.drag-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:#ff9d00;color:#000;border-radius:8px;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;cursor:grab;text-decoration:none;border:none;user-select:none;-webkit-user-select:none;transition:background .15s;}
+.drag-btn:hover{background:#ffb733;}
+.drag-btn:active{cursor:grabbing;}
+.copy-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:var(--s2);color:var(--muted);border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;}
+.copy-btn:hover{border-color:var(--accent);color:var(--accent);}
+.bm-code{margin:0 16px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-family:monospace;font-size:10px;color:var(--muted);line-height:1.6;word-break:break-all;max-height:120px;overflow-y:auto;cursor:text;}
+.bm-code-toggle{margin:0 16px 8px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px;}
+.bm-code-toggle:hover{color:var(--accent);}
+.sec-hdr{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:var(--text);}
+.sec-hdr .line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<header>
+  <div class="hdr">
+    <a href="index.html" class="logo">Game<span>Vault</span></a>
+    <div class="hdr-r">
+      <a href="settings.html" class="hbtn">⚙️</a>
+      <a href="index.html" class="hbtn">🎮</a>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="bm-hero">
+    <h1><span class="bc">BOOKMARKLETS</span></h1>
+    <p>One-click tools you can run on any website from your browser</p>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-box">
+    <h2>📖 How to Use a Bookmarklet</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-text"><strong style="color:#ff9d00">Drag</strong> the orange button to your browser's bookmarks bar. If you don't see the bar, press <code>Ctrl+Shift+B</code> (Windows) or <code>Cmd+Shift+B</code> (Mac).</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-text"><strong style="color:#ff9d00">Go</strong> to the website you want to use the tool on (e.g. go to Polytrack, then click the bookmarklet).</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-text"><strong style="color:#ff9d00">Click</strong> the bookmarklet in your bookmarks bar. The tool pops up on that page instantly.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-text">On <strong style="color:#ff9d00">mobile</strong>: you can't drag — instead copy the code, create a new bookmark manually, then replace the URL with the copied code.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO MAKE -->
+  <div class="how-box" style="margin-bottom:20px;">
+    <h2>🛠️ How to Make Your Own Bookmarklet</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-text">Write your JavaScript code normally. Wrap it in <code>(function(){ YOUR CODE HERE })()</code> so it runs immediately.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-text">Put <code>javascript:</code> at the very start — no space. This tells the browser it's code not a URL.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-text">Create a new bookmark in your browser, name it anything, and paste the whole <code>javascript:...</code> string as the URL.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-text">Click it on any page to run it. It has full access to that page's DOM, localStorage, and JavaScript environment.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKMARKLETS LIST -->
+  <div class="sec-hdr">📎 Available Bookmarklets <div class="line"></div></div>
+  <div class="bm-grid" id="bmGrid"></div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a class="nav-item" href="index.html"><span class="nav-icon">🎮</span><span class="nav-label">Games</span></a>
+  <a class="nav-item" href="movies.html"><span class="nav-icon">🎬</span><span class="nav-label">Movies</span></a>
+  <a class="nav-item" href="search.html"><span class="nav-icon">🔍</span><span class="nav-label">Search</span></a>
+  <a class="nav-item" href="favorites.html"><span class="nav-icon">⭐</span><span class="nav-label">Favs</span></a>
+  <a class="nav-item active" href="settings.html"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></a>
+</nav>
+
+<script>
+var BOOKMARKLETS = [
+  {
+    id: 'polytrack-save',
+    name: 'PolyTrack Save Manager',
+    icon: '🏎️',
+    desc: 'Export and import your PolyTrack save data so you can transfer progress between browsers or devices. Works on the official PolyTrack site and any hosted version.',
+    tag: 'game',
+    works: 'Use on: polytrack.io or any PolyTrack page',
+    code: 'javascript:(function(){if(document.getElementById("ptSaveManager"))return;let box=document.createElement("div");box.id="ptSaveManager";box.style="position:fixed;top:10px;right:10px;z-index:99999;background:#111;color:#0f0;padding:10px;border:2px solid #0f0;font-family:monospace;width:280px;";let title=document.createElement("div");title.textContent="PolyTrack Save Manager";title.style="font-weight:bold;margin-bottom:6px;";box.appendChild(title);let textarea=document.createElement("textarea");textarea.style="width:100%;height:90px;background:#000;color:#0f0;";box.appendChild(textarea);let status=document.createElement("div");status.style="margin-top:4px;font-size:12px;";box.appendChild(status);function getData(){let data={};for(let k in localStorage){if(k.startsWith("polytrack_v3")){data[k]=localStorage.getItem(k);}}return JSON.stringify(data);}async function copyToClipboard(text){try{await navigator.clipboard.writeText(text);status.textContent="Copied!";}catch(e){status.textContent="Copy failed";}}async function pasteFromClipboard(){try{let text=await navigator.clipboard.readText();textarea.value=text;status.textContent="Pasted!";return text;}catch(e){status.textContent="Paste blocked (click page first)";return null;}}function doImport(text){try{let data=JSON.parse(text);for(let k in data){localStorage.setItem(k,data[k]);}alert("Imported! Refresh page.");}catch(e){alert("Invalid save data");}}let exportBtn=document.createElement("button");exportBtn.textContent="Export + Copy";exportBtn.onclick=function(){let data=getData();textarea.value=data;copyToClipboard(data);};box.appendChild(exportBtn);let copyBtn=document.createElement("button");copyBtn.textContent="Copy";copyBtn.style.marginLeft="5px";copyBtn.onclick=function(){copyToClipboard(textarea.value);};box.appendChild(copyBtn);let pasteImportBtn=document.createElement("button");pasteImportBtn.textContent="Paste + Import";pasteImportBtn.style.marginLeft="5px";pasteImportBtn.onclick=async function(){let text=await pasteFromClipboard();if(text)doImport(text);};box.appendChild(pasteImportBtn);let importBtn=document.createElement("button");importBtn.textContent="Import";importBtn.style.marginLeft="5px";importBtn.onclick=function(){doImport(textarea.value);};box.appendChild(importBtn);let clearBtn=document.createElement("button");clearBtn.textContent="Clear";clearBtn.style.marginLeft="5px";clearBtn.onclick=function(){textarea.value="";status.textContent="";};box.appendChild(clearBtn);let closeBtn=document.createElement("button");closeBtn.textContent="X";closeBtn.style="float:right;margin-top:-22px;background:red;color:white;";closeBtn.onclick=function(){box.remove();};box.appendChild(closeBtn);document.body.appendChild(box);})();'
+  },
+];
+
+function renderBookmarklets() {
+  var grid = document.getElementById('bmGrid');
+  grid.innerHTML = BOOKMARKLETS.map(function(bm) {
+    var tagClass = bm.tag === 'game' ? 'tag-game' : 'tag-util';
+    var tagLabel = bm.tag === 'game' ? '🎮 GAME TOOL' : '🔧 UTILITY';
+    return '<div class="bm-card">'
+      + '<div class="bm-card-header">'
+      + '<div class="bm-icon">' + bm.icon + '</div>'
+      + '<div class="bm-info">'
+      + '<div class="bm-name">' + bm.name + '</div>'
+      + '<div class="bm-desc">' + bm.desc + '</div>'
+      + '<div style="margin-top:4px;font-size:11px;color:var(--muted);font-weight:600;">' + bm.works + '</div>'
+      + '<span class="bm-tag ' + tagClass + '">' + tagLabel + '</span>'
+      + '</div></div>'
+      + '<div class="bm-actions">'
+      + '<a class="drag-btn" href="' + bm.code + '" onclick="return false;" draggable="true" ondragstart="event.dataTransfer.setData(\'text/uri-list\',this.href);event.dataTransfer.setData(\'text/plain\',this.href);">📎 Drag to Bookmarks Bar</a>'
+      + '<button class="copy-btn" onclick="copyBM(\'' + bm.id + '\',this)">📋 Copy Code</button>'
+      + '</div>'
+      + '<div class="bm-code-toggle" onclick="toggleCode(\'' + bm.id + '\',this)">▶ Show Code</div>'
+      + '<div class="bm-code" id="code-' + bm.id + '" style="display:none">' + bm.code.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+function copyBM(id, btn) {
+  var bm = BOOKMARKLETS.find(function(b){ return b.id === id; });
+  if (!bm) return;
+  navigator.clipboard.writeText(bm.code).then(function() {
+    btn.textContent = '✅ Copied!';
+    setTimeout(function(){ btn.textContent = '📋 Copy Code'; }, 2000);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = bm.code;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function(){ btn.textContent = '📋 Copy Code'; }, 2000);
+  });
+}
+
+function toggleCode(id, el) {
+  var code = document.getElementById('code-' + id);
+  if (!code) return;
+  var visible = code.style.display !== 'none';
+  code.style.display = visible ? 'none' : 'block';
+  el.textContent = visible ? '▶ Show Code' : '▼ Hide Code';
+}
+
+// Tab cloak
+try {
+  if (localStorage.getItem('gv_cloak') !== 'false') {
+    document.title = localStorage.getItem('gv_cloaktitle') || 'Google Classroom';
+    var ci = localStorage.getItem('gv_cloakicon') || '';
+    if (ci) {
+      var l = document.querySelector("link[rel*='icon']");
+      if (!l) { l = document.createElement('link'); l.rel = 'shortcut icon'; document.head.appendChild(l); }
+      l.href = ci;
+    }
+  }
+  if (localStorage.getItem('gv_scan') !== 'false') document.body.classList.add('scanlines');
+} catch(e) {}
+
+renderBookmarklets();
+</script>
+</body>
+</html>
