@@ -142,6 +142,12 @@ const S = {
   set anim(v)       {localStorage.setItem('gv_anim',String(v));},
   get thumbs()      {try{return JSON.parse(localStorage.getItem('gv_thumbs')||'{}');}catch{return {};}},
   set thumbs(v)     {localStorage.setItem('gv_thumbs',JSON.stringify(v));},
+  get music()       {return localStorage.getItem('gv_music')!=='false';},
+  set music(v)      {localStorage.setItem('gv_music',String(v));},
+  get musicUrl()    {return localStorage.getItem('gv_musicurl')||'music/background.mp3';},
+  set musicUrl(v)   {localStorage.setItem('gv_musicurl',v);},
+  get musicVol()    {return parseFloat(localStorage.getItem('gv_musicvol')||'0.4');},
+  set musicVol(v)   {localStorage.setItem('gv_musicvol',String(v));},
 };
 
 // ── TAB CLOAK ─────────────────────────────────────────
@@ -604,11 +610,95 @@ function initChat() {
   }, 2000);
 }
 
+// ── BACKGROUND MUSIC ─────────────────────────────────
+var GV_AUDIO = null;
+var GV_MUSIC_STARTED = false;
+
+var GV_TRACKS = [
+  'music/background.mp3',
+  'music/background2.mp3',
+];
+var GV_CURRENT_TRACK = 0;
+
+function musicPickTrack() {
+  // Pick a random track, skip ones that fail to load
+  GV_CURRENT_TRACK = Math.floor(Math.random() * GV_TRACKS.length);
+  return GV_TRACKS[GV_CURRENT_TRACK];
+}
+
+function musicInit() {
+  if (!S.music) return;
+  if (GV_AUDIO) return;
+  GV_AUDIO = new Audio();
+  GV_AUDIO.volume = S.musicVol;
+  GV_AUDIO.src = musicPickTrack();
+  // When one track ends, play the next
+  GV_AUDIO.addEventListener('ended', function() {
+    GV_CURRENT_TRACK = (GV_CURRENT_TRACK + 1) % GV_TRACKS.length;
+    GV_AUDIO.src = GV_TRACKS[GV_CURRENT_TRACK];
+    GV_AUDIO.play().catch(function(){});
+  });
+  // If track fails (file missing), try the next one
+  GV_AUDIO.addEventListener('error', function() {
+    GV_CURRENT_TRACK = (GV_CURRENT_TRACK + 1) % GV_TRACKS.length;
+    GV_AUDIO.src = GV_TRACKS[GV_CURRENT_TRACK];
+    if (!GV_AUDIO.paused) GV_AUDIO.play().catch(function(){});
+  });
+}
+
+function musicPlay() {
+  if (!S.music) return;
+  if (!GV_AUDIO) musicInit();
+  if (!GV_AUDIO) return;
+  GV_AUDIO.play().catch(function(){});
+}
+
+function musicPause() {
+  if (GV_AUDIO) GV_AUDIO.pause();
+}
+
+function musicStop() {
+  if (GV_AUDIO) { GV_AUDIO.pause(); GV_AUDIO.currentTime = 0; }
+}
+
+function musicSetVol(v) {
+  S.musicVol = v;
+  if (GV_AUDIO) GV_AUDIO.volume = v;
+}
+
+
+
+function musicToggle(on) {
+  S.music = on;
+  if (on) { musicInit(); musicPlay(); }
+  else musicStop();
+}
+
+// Start music on first user interaction (browser autoplay policy)
+function musicStartOnInteraction() {
+  if (GV_MUSIC_STARTED) return;
+  GV_MUSIC_STARTED = true;
+  if (S.music) { musicInit(); musicPlay(); }
+  document.removeEventListener('click', musicStartOnInteraction);
+  document.removeEventListener('keydown', musicStartOnInteraction);
+  document.removeEventListener('touchstart', musicStartOnInteraction);
+}
+
+// Pause when tab loses focus (game opened in same tab)
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) musicPause();
+  else if (S.music && GV_MUSIC_STARTED) musicPlay();
+});
+
 // ── INIT ──────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.toggle('scanlines', S.scan);
   applyCloak();
   renderGrids();
+  // Start music on first interaction
+  document.addEventListener('click', musicStartOnInteraction);
+  document.addEventListener('keydown', musicStartOnInteraction);
+  document.addEventListener('touchstart', musicStartOnInteraction);
   initCatFilter();
   initSettings();
   initSearch();
