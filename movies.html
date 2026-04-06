@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -192,8 +192,8 @@ document.addEventListener('keydown', function(e) {
 });
 
 function autoPostPath(title) {
-  // Converts title to lowercase filename: "The Goat Movie" -> "posters/the goat movie.jpg"
-  return 'posters/' + title.toLowerCase() + '.jpg';
+  // "GOAT" -> "posters/goat.jpg", "The Dark Knight" -> "posters/thedarkknight.jpg"
+  return 'posters/' + title.toLowerCase().replace(/\s+/g, '') + '.jpg';
 }
 
 function render() {
@@ -211,7 +211,9 @@ function render() {
 
   grid.innerHTML = MOVIES.map(function(m, i) {
     var posterSrc = m.poster || autoPostPath(m.title);
-    var poster = '<img src="' + posterSrc + '" alt="' + m.title + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+    var pngSrc = posterSrc.replace('.jpg', '.png');
+    var poster = '<img src="' + posterSrc + '" alt="' + m.title + '" loading="lazy"'
+      + ' onerror="if(this.src.indexOf(\'.png\')<0){this.src=\''+pngSrc+'\'}else{this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'}">'
       + '<div class="poster-fallback" style="display:none"><div class="pf-icon">🎬</div><div class="pf-name">' + m.title + '</div></div>';
 
     return '<div class="movie-card">'
