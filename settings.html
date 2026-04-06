@@ -43,6 +43,15 @@
 .clear-btn:hover{border-color:var(--accent2);color:var(--accent2);}
 .about-box{padding:16px;color:var(--muted);font-size:13px;font-weight:600;line-height:1.7;}
 .about-box a{color:var(--accent);text-decoration:none;}
+
+.bm-item{background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px;}
+.bm-item-name{font-family:"Bebas Neue",sans-serif;font-size:16px;letter-spacing:1.5px;color:var(--text);margin-bottom:4px;}
+.bm-item-desc{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:10px;line-height:1.5;}
+.bm-item-works{font-size:11px;font-weight:700;color:#ff9d00;margin-bottom:10px;}
+.bm-copy-btn{width:100%;background:#ff9d00;color:#000;border:none;border-radius:7px;padding:9px;font-family:"Bebas Neue",sans-serif;font-size:15px;letter-spacing:1px;cursor:pointer;margin-bottom:6px;}
+.bm-toggle{font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px;}
+.bm-toggle:hover{color:var(--accent);}
+.bm-code-block{margin-top:8px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:9px;font-family:monospace;font-size:10px;color:var(--muted);line-height:1.6;word-break:break-all;max-height:100px;overflow-y:auto;display:none;}
 </style>
 </head>
 <body>
@@ -109,6 +118,40 @@
     <div class="thumb-footer">
       <button class="clear-btn" onclick="if(confirm('Clear all custom thumbnails?')){localStorage.removeItem('gv_thumbs');location.reload();}">Clear All</button>
       <button class="save-btn" id="thumbSaveBtn">💾 Save Thumbnails</button>
+    </div>
+  </div>
+
+  <!-- BOOKMARKLETS -->
+  <div class="settings-section">
+    <div class="settings-section-title">📎 Bookmarklets</div>
+    <div class="setting-row" style="border-bottom:none;flex-direction:column;align-items:flex-start;">
+      <div class="setting-lbl" style="margin-bottom:10px">How to add a bookmarklet on mobile</div>
+      <div style="background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:12px;width:100%;margin-bottom:14px;">
+        <div style="font-size:12px;font-weight:700;color:#ff9d00;margin-bottom:10px;letter-spacing:1px;">STEP BY STEP — MOBILE</div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">1</div>
+            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Copy the bookmarklet code using the Copy button below.</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">2</div>
+            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Open any webpage in your browser (e.g. google.com). Tap the <strong style="color:#ff9d00">Share button</strong> then tap <strong style="color:#ff9d00">Add Bookmark</strong>. Save it — name it anything like "PT Save".</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">3</div>
+            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Now find that bookmark. In <strong style="color:#ff9d00">Safari</strong>: tap the book icon → Bookmarks → find it → tap and hold → Edit. In <strong style="color:#ff9d00">Chrome</strong>: tap the 3 dots → Bookmarks → find it → tap and hold → Edit bookmark.</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">4</div>
+            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);"><strong style="color:#ff9d00">Clear the URL field completely</strong> then paste the copied bookmarklet code into it. Save.</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <div style="width:22px;height:22px;background:#ff9d00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Bebas Neue,sans-serif;font-size:12px;color:#000;flex-shrink:0;">5</div>
+            <div style="font-size:12px;font-weight:600;line-height:1.6;color:var(--text);">Go to the site you want to use it on (e.g. PolyTrack). Open your bookmarks, find it, and tap it. The tool appears on the page.</div>
+          </div>
+        </div>
+      </div>
+      <div id="bmList" style="width:100%;display:flex;flex-direction:column;gap:10px;"></div>
     </div>
   </div>
 
@@ -199,6 +242,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+var BOOKMARKLETS = [
+  {
+    id: 'polytrack-save',
+    name: 'PolyTrack Save Manager',
+    icon: '🏎️',
+    desc: 'Export and import your PolyTrack save data. Transfer progress between browsers or devices. Shows your run count and best time.',
+    works: 'Use on: any PolyTrack page',
+    code: 'javascript:(function(){if(document.getElementById("ptSaveManager"))return;let box=document.createElement("div");box.id="ptSaveManager";box.style="position:fixed;top:80px;right:20px;z-index:99999;background:#111;color:#0f0;border:2px solid #0f0;font-family:monospace;width:320px;";let header=document.createElement("div");header.style="cursor:move;background:#0f0;color:#000;padding:5px;font-weight:bold;";header.innerHTML="PolyTrack Save Manager";let minimizeBtn=document.createElement("button");minimizeBtn.textContent="_";minimizeBtn.style="float:right;margin-left:5px;";header.appendChild(minimizeBtn);let closeBtn=document.createElement("button");closeBtn.textContent="X";closeBtn.style="float:right;background:red;color:white;";closeBtn.onclick=()=>box.remove();header.appendChild(closeBtn);box.appendChild(header);let content=document.createElement("div");content.style="padding:8px;";box.appendChild(content);let textarea=document.createElement("textarea");textarea.style="width:100%;height:90px;background:#000;color:#0f0;";content.appendChild(textarea);let status=document.createElement("div");status.style="font-size:12px;margin-top:4px;";content.appendChild(status);let info=document.createElement("div");info.style="font-size:12px;margin-top:6px;color:#8f8;";content.appendChild(info);function getData(){let data={};for(let k in localStorage){if(k.startsWith("polytrack_v3")){data[k]=localStorage.getItem(k);}}return data;}function decodeInfo(data){let best=Infinity;let count=0;for(let k in data){if(k.includes("record")){try{let obj=JSON.parse(data[k]);let frames=parseInt(obj.frames);if(!isNaN(frames)){count++;if(frames<best)best=frames;}}catch{}}}if(count===0){info.textContent="No runs found";}else{let seconds=(best/1000).toFixed(3);info.textContent="Runs: "+count+" | Best: "+seconds+"s ("+best+")";}}async function copy(text){try{await navigator.clipboard.writeText(text);status.textContent="Copied!";}catch{status.textContent="Copy failed";}}async function paste(){try{let t=await navigator.clipboard.readText();textarea.value=t;status.textContent="Pasted!";return t;}catch{status.textContent="Paste blocked";}}function doImport(text){try{let data=JSON.parse(text);for(let k in data){localStorage.setItem(k,data[k]);}decodeInfo(data);alert("Imported! Refresh.");}catch{alert("Invalid data");}}function exportData(){let data=getData();let str=JSON.stringify(data);textarea.value=str;decodeInfo(data);}let btns=document.createElement("div");btns.style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;";content.appendChild(btns);function btn(name,fn){let b=document.createElement("button");b.textContent=name;b.style="flex:1;";b.onclick=fn;return b;}btns.appendChild(btn("Export",exportData));btns.appendChild(btn("Copy",()=>copy(textarea.value)));btns.appendChild(btn("Export+Copy",()=>{let data=getData();let str=JSON.stringify(data);textarea.value=str;decodeInfo(data);copy(str);}));btns.appendChild(btn("Paste+Import",async()=>{let t=await paste();if(t)doImport(t);}));btns.appendChild(btn("Import",()=>doImport(textarea.value)));btns.appendChild(btn("Clear",()=>{textarea.value="";info.textContent="";}));document.body.appendChild(box);let down=false,ox,oy;header.onmousedown=e=>{down=true;ox=box.offsetLeft-e.clientX;oy=box.offsetTop-e.clientY;};document.onmouseup=()=>{down=false;let x=box.offsetLeft;let w=window.innerWidth;if(x<50)box.style.left="0px";if(x>w-350)box.style.left=(w-320)+"px";};document.onmousemove=e=>{if(!down)return;box.style.left=(e.clientX+ox)+"px";box.style.top=(e.clientY+oy)+"px";box.style.right="auto";};let minimized=false;minimizeBtn.onclick=()=>{minimized=!minimized;content.style.display=minimized?"none":"block";};})();'
+  },
+];
+
+function renderBMs() {
+  var list = document.getElementById('bmList');
+  if (!list) return;
+  list.innerHTML = BOOKMARKLETS.map(function(bm) {
+    return '<div class="bm-item">'
+      + '<div class="bm-item-name">' + bm.icon + ' ' + bm.name + '</div>'
+      + '<div class="bm-item-desc">' + bm.desc + '</div>'
+      + '<div class="bm-item-works">' + bm.works + '</div>'
+      + '<button class="bm-copy-btn" onclick="copyBM('' + bm.id + '',this)">📋 Copy Bookmarklet Code</button>'
+      + '<div class="bm-toggle" onclick="toggleBMCode('' + bm.id + '',this)">▶ Show Code</div>'
+      + '<div class="bm-code-block" id="bmc-' + bm.id + '">' + bm.code.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>'
+      + '</div>';
+  }).join('');
+}
+
+function copyBM(id, btn) {
+  var bm = BOOKMARKLETS.find(function(b){ return b.id === id; });
+  if (!bm) return;
+  navigator.clipboard.writeText(bm.code).then(function() {
+    btn.textContent = '✅ Copied! Now follow the steps above.';
+    setTimeout(function(){ btn.textContent = '📋 Copy Bookmarklet Code'; }, 3000);
+  }).catch(function() {
+    var ta = document.createElement('textarea');
+    ta.value = bm.code; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = '✅ Copied!';
+    setTimeout(function(){ btn.textContent = '📋 Copy Bookmarklet Code'; }, 3000);
+  });
+}
+
+function toggleBMCode(id, el) {
+  var code = document.getElementById('bmc-' + id);
+  if (!code) return;
+  var vis = code.style.display !== 'none' && code.style.display !== '';
+  code.style.display = vis ? 'none' : 'block';
+  el.textContent = vis ? '▶ Show Code' : '▼ Hide Code';
+}
+
+renderBMs();
 </script>
 </body>
 </html>
