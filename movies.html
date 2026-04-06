@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -76,63 +76,7 @@
 <main>
   <div class="movies-hero">
     <h1><span class="cm">MOVIES</span></h1>
-    <p>YouTube, Google Drive, or direct files — all play fullscreen</p>
-  </div>
-
-  <!-- HOW TO ADD -->
-  <div class="how-to">
-    <h2>📂 How to Add Movies (Owner Only)</h2>
-
-    <div class="tabs">
-      <div class="tab active" onclick="showGuide('yt',this)">▶ YouTube</div>
-      <div class="tab" onclick="showGuide('gd',this)">☁ Google Drive</div>
-      <div class="tab" onclick="showGuide('mp4',this)">📁 Direct File</div>
-    </div>
-
-    <div id="guide-yt">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">Find the movie on YouTube. Copy the URL from the address bar, e.g. <code>https://www.youtube.com/watch?v=dQw4w9WgXcQ</code></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">Open <code>movies.html</code> in your GitHub repo (pencil icon to edit). Find the <code>MOVIES</code> array and add an entry with <code>type:'youtube'</code> and the video ID (the part after <code>v=</code>):<br><br>
-        <code>{title:'Movie Name', type:'youtube', id:'dQw4w9WgXcQ', year:'2024', genre:'Action', poster:'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'}</code><br><br>
-        The poster URL works automatically — just replace the ID in it.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">Commit the change. Everyone sees it instantly.</div>
-      </div>
-    </div>
-
-    <div id="guide-gd" style="display:none">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">Upload your movie to Google Drive. Right-click it → <strong>Share</strong> → change to <strong>Anyone with the link</strong> → copy the link.<br>The link looks like: <code>https://drive.google.com/file/d/FILE_ID_HERE/view</code></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">Add to the <code>MOVIES</code> array with <code>type:'gdrive'</code> and just the file ID:<br><br>
-        <code>{title:'Movie Name', type:'gdrive', id:'FILE_ID_HERE', year:'2024', genre:'Action', poster:''}</code></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">For the poster, paste any image URL. Google Images → right-click image → Copy image address.</div>
-      </div>
-    </div>
-
-    <div id="guide-mp4" style="display:none">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">Upload your .mp4 file to a <code>movies/</code> folder in your GitHub repo. Files must be under 25MB for web upload, or use Git LFS for larger files.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">Add to the <code>MOVIES</code> array with <code>type:'mp4'</code>:<br><br>
-        <code>{title:'Movie Name', type:'mp4', id:'movies/yourfile.mp4', year:'2024', genre:'Action', poster:'movies/poster.jpg'}</code></div>
-      </div>
-    </div>
+    <p>YouTube and Google Drive movies — fullscreen player</p>
   </div>
 
   <!-- MOVIE GRID -->
@@ -169,13 +113,14 @@
 // Types: 'youtube', 'gdrive', 'mp4'
 //
 // YouTube:    {title:'Name', type:'youtube', id:'VIDEO_ID',   year:'2024', genre:'Action', poster:'https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg'}
-//Google Drive:{title:'GOAT', type:'gdrive',  id:'1XocTO1c3_2TCM6-pEk8v1HNqcwXHzEIO',    year:'2026', genre:'Sports',  poster:'https://www.sonypictures.co.uk/sites/unitedkingdom/files/2026-03/DP_10095722_Goat_1920x2560_HEKeyArt_xlarge_thumbnail%20%281%29.jpg'}
+// Google Drive:{title:'Name', type:'gdrive',  id:'FILE_ID',    year:'2024', genre:'Drama',  poster:'https://any-image-url.jpg'}
 // Direct MP4: {title:'Name', type:'mp4',     id:'movies/f.mp4',year:'2024',genre:'Comedy', poster:'movies/poster.jpg'}
 // ═══════════════════════════════════════════════════════
 var MOVIES = [
   // Add your movies here, examples:
   {title:'GOAT', type:'gdrive',  id:'1XocTO1c3_2TCM6-pEk8v1HNqcwXHzEIO',    year:'2026', genre:'Sports',  poster:'https://www.sonypictures.co.uk/sites/unitedkingdom/files/2026-03/DP_10095722_Goat_1920x2560_HEKeyArt_xlarge_thumbnail%20%281%29.jpg'},
   {title:'Anaconda', type:'gdrive',  id:'1v1tC4qECel2_bVckAFKBTB0LMbU01mGN',    year:'2025', genre:'Comedy',  poster:'https://imgur.com/a/U6UA7cO'},
+  {title:'Avatar', type:'gdrive',  id:'1v1tC4qECel2_bVckAFKBTB0LMbU01mGN',    year:'2025', genre:'Comedy',  poster:'https://imgur.com/a/U6UA7cO'},
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -246,6 +191,11 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closePlayer();
 });
 
+function autoPostPath(title) {
+  // Converts title to lowercase filename: "The Goat Movie" -> "posters/the goat movie.jpg"
+  return 'posters/' + title.toLowerCase() + '.jpg';
+}
+
 function render() {
   var grid = document.getElementById('movieGrid');
   var noMovies = document.getElementById('noMovies');
@@ -260,10 +210,9 @@ function render() {
   var badgeClass = {youtube:'badge-yt', gdrive:'badge-gd', mp4:'badge-mp4'};
 
   grid.innerHTML = MOVIES.map(function(m, i) {
-    var poster = m.poster
-      ? '<img src="' + m.poster + '" alt="' + m.title + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
-        + '<div class="poster-fallback" style="display:none"><div class="pf-icon">🎬</div><div class="pf-name">' + m.title + '</div></div>'
-      : '<div class="poster-fallback"><div class="pf-icon">🎬</div><div class="pf-name">' + m.title + '</div></div>';
+    var posterSrc = m.poster || autoPostPath(m.title);
+    var poster = '<img src="' + posterSrc + '" alt="' + m.title + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'
+      + '<div class="poster-fallback" style="display:none"><div class="pf-icon">🎬</div><div class="pf-name">' + m.title + '</div></div>';
 
     return '<div class="movie-card">'
       + '<div class="movie-poster" onclick="play(' + i + ')">'
