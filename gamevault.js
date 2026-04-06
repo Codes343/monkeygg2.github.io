@@ -84,6 +84,7 @@ const GAMES = [
   {id:'where-water',      name:'Where Is the Water',     cat:'puzzle',     emoji:'💧', hot:false,            path:'games/where-is-the-water/',      tip:'Dig channels and guide water to the croc'},
   {id:'maptroid',         name:'Maptroid',               cat:'puzzle',     emoji:'🗺️', hot:false,            path:'games/maptroid/',                tip:'Metroid style exploration, find all upgrades'},
   {id:'family-feud',      name:'Family Feud',            cat:'puzzle',     emoji:'📺', hot:false,            path:'games/family-feud/',             tip:'Type your answer, survey says'},
+  {id:'idle-breakout',      name:'Idle Breakout',            cat:'puzzle',     emoji:'📺', hot:false,            path:'games/idle-breakout/',             tip:'Use Balls to break bricks'},
   // CLICKER / SIM
   {id:'clicker-heroes',   name:'Clicker Heroes',         cat:'clicker',    emoji:'⚔️', hot:false,            path:'games/clicker-heroes/',          tip:'Click monsters, hire heroes, and prestige'},
   {id:'doge-miner',       name:'Doge Miner',             cat:'clicker',    emoji:'🐕', hot:false,            path:'games/doge-miner/',              tip:'Click to mine, much doge, very coin'},
