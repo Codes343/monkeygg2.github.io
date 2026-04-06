@@ -21,6 +21,7 @@ const GAMES = [
   {id:'getaway-shootout', name:'Getaway Shootout',       cat:'action',     emoji:'🔫', hot:true,             path:'games/getaway-shootout/',        tip:'Q and E for player 1 hop, left and right for player 2'},
   {id:'time-shooter',     name:'Time Shooter',           cat:'action',     emoji:'⏱️', hot:true,             path:'games/time-shooter/',            tip:'Move to slow time, shoot to eliminate enemies'},
   {id:'time-shooter-3',   name:'Time Shooter 3',         cat:'action',     emoji:'🔫', hot:true,  isNew:true, path:'games/time-shooter-3/',          tip:'Move to slow time, shoot everyone'},
+  {id:'burrito-bison',   name:'Burrito Bison',         cat:'action',     emoji:'🔫', hot:true,  isNew:true, path:'games/burrito-bison/',          tip:'Smash gummy bears'},
   {id:'monkey-mart',      name:'Monkey Mart',            cat:'sim',        emoji:'🐒', hot:true,             path:'games/monkey-mart/',             tip:'WASD or tap to move your monkey'},
   {id:'tiny-fishing',     name:'Tiny Fishing',           cat:'clicker',    emoji:'🎣', hot:true,  isNew:true, path:'games/tiny-fishing/',            tip:'Cast and reel, upgrade your gear'},
   {id:'subway-surfers',   name:'Subway Surfers',         cat:'action',     emoji:'🏃', hot:true,  isNew:true, path:'games/subway-surfers/',          tip:'Swipe to dodge trains and collect coins'},
