@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>*{margin:0;padding:0}html,body{height:100%;overflow:hidden;background:#000}</style>
+</head>
+<body>
+<script>
+var mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 1;
+window.location.replace(mobile ? '2.0.2alpha/index.html' : '1.4.4/index.html');
+</script>
+</body>
+</html>
