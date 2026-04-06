@@ -24,6 +24,7 @@ const GAMES = [
   {id:'subway-surfers',   name:'Subway Surfers',         cat:'action',     emoji:'🏃', hot:true,  isNew:true, path:'games/subway-surfers/',          tip:'Swipe to dodge trains and collect coins'},
   {id:'five-nights',      name:'Five Nights at Epsteins',cat:'action',     emoji:'😨', hot:true,             path:'games/five-nights-at-epsteins/', tip:'Survive the night and manage power'},
   {id:'duck-life-4',      name:'Duck Life 4',            cat:'sports',     emoji:'🦆', hot:true,             path:'games/duck-life-4/',             tip:'Train your duck and win races'},
+  {id:'escape-road-2',   name:'Escape Road 2',       cat:'action',   emoji:'🔴', hot:true,            path:'games/EscapeRoad2/',         tip:'More upgrades and bigger levels'},
   // RACING
   {id:'drift-boss',       name:'Drift Boss',             cat:'racing',     emoji:'💨', hot:false,            path:'games/drift-boss/',              tip:'Click or tap to drift right, release for left'},
   {id:'drive-mad',        name:'Drive Mad',              cat:'racing',     emoji:'🚗', hot:false,            path:'games/drive-mad/',               tip:'Left and right arrows to drive, do not flip'},
