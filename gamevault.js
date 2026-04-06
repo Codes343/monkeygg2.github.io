@@ -7,6 +7,7 @@ const GAMES = [
   {id:'polytrack',        name:'Polytrack',              cat:'racing',     emoji:'🏎️', hot:true,  isNew:true, path:'games/polytrack/',  tip:'WASD or Arrows to drive, R to restart, custom cars included'},
   {id:'slope',            name:'Slope',                  cat:'racing',     emoji:'🔵', hot:true,             path:'games/slope/',                   tip:'Left and right arrows to steer, avoid red blocks'},
   {id:'retro-bowl',       name:'Retro Bowl',             cat:'sports',     emoji:'🏈', hot:true,             path:'games/retro-bowl/',              tip:'Swipe to pass, tap to run and juke'},
+  {id:'retro-bowl_college',       name:'Retro Bowl College',             cat:'sports',     emoji:'🏈', hot:true,             path:'games/retro-bowl-college/',              tip:'Swipe to pass, tap to run and juke'},
   {id:'ovo',              name:'OvO',                    cat:'platformer', emoji:'🤸', hot:true,             path:'games/ovo/index.html',           tip:'Arrow keys to move, space to jump, down to slide, shift to dash'},
   {id:'soundboard',       name:'Soundboard',             cat:'fun',        emoji:'🤸', hot:true,             path:'games/soundboard/index.html',    tip:'Have fun with the buttons'},
   {id:'1v1-lol',          name:'1v1.LOL',                cat:'action',     emoji:'🏗️', hot:true,             path:'games/1v1-lol/',                 tip:'WASD to move, mouse to aim, Z and X to build'},
