@@ -2,13 +2,185 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<style>*{margin:0;padding:0}html,body{height:100%;overflow:hidden;background:#000}</style>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>OvO</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; background: #000; }
+
+/* The actual game fills everything except bottom on mobile */
+#gameWrap {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  bottom: 0;
+}
+body.has-touch #gameWrap { bottom: 155px; }
+
+#gameWrap iframe {
+  width: 100%; height: 100%; border: none; display: block;
+}
+
+/* Touch controls - only show on touch devices */
+#tc {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 150px;
+  background: rgba(0,0,0,0.6);
+  z-index: 100;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body.has-touch #tc { display: block; }
+
+/* D-pad left side */
+.dpad {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  display: grid;
+  grid-template-columns: 56px 56px 56px;
+  grid-template-rows: 56px 56px;
+  gap: 5px;
+}
+
+/* Action buttons right side */
+.abtns {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tb {
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+.tb.active { background: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.7); }
+.tb-wide { width: 117px; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+.tb-empty { background: none; border: none; pointer-events: none; }
+</style>
 </head>
 <body>
+<div id="gameWrap">
+  <iframe id="gf" src="2.0.2alpha/index.html"
+    allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;pointer-lock;gamepad"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div id="tc">
+  <div class="dpad">
+    <div class="tb-empty"></div>
+    <div class="tb" id="btnUp">▲</div>
+    <div class="tb-empty"></div>
+    <div class="tb" id="btnLeft">◀</div>
+    <div class="tb" id="btnDown">▼</div>
+    <div class="tb" id="btnRight">▶</div>
+  </div>
+  <div class="abtns">
+    <div class="tb tb-wide" id="btnSpace">JUMP / SLIDE</div>
+    <div class="tb tb-wide" id="btnR">RESTART (R)</div>
+  </div>
+</div>
+
 <script>
-var mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 1;
-window.location.replace(mobile ? '2.0.2alpha/index.html' : '1.4.4/index.html');
+// Detect touch
+var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+if (isTouch) document.body.classList.add('has-touch');
+
+// Key mappings
+var KEYS = {
+  btnUp:    { key: 'ArrowUp',    code: 'ArrowUp',    keyCode: 38 },
+  btnDown:  { key: 'ArrowDown',  code: 'ArrowDown',  keyCode: 40 },
+  btnLeft:  { key: 'ArrowLeft',  code: 'ArrowLeft',  keyCode: 37 },
+  btnRight: { key: 'ArrowRight', code: 'ArrowRight', keyCode: 39 },
+  btnSpace: { key: ' ',          code: 'Space',       keyCode: 32 },
+  btnR:     { key: 'r',          code: 'KeyR',        keyCode: 82 },
+};
+
+var held = {};
+
+function fire(id, down) {
+  var k = KEYS[id];
+  if (!k) return;
+  var type = down ? 'keydown' : 'keyup';
+  // Fire on window and document — OvO listens on both
+  [window, document].forEach(function(target) {
+    try {
+      target.dispatchEvent(new KeyboardEvent(type, {
+        key: k.key, code: k.code, keyCode: k.keyCode,
+        which: k.keyCode, bubbles: true, cancelable: true
+      }));
+    } catch(e) {}
+  });
+  // Also try posting to the iframe's window
+  try {
+    var iw = document.getElementById('gf').contentWindow;
+    [iw, iw.document].forEach(function(t) {
+      try {
+        t.dispatchEvent(new KeyboardEvent(type, {
+          key: k.key, code: k.code, keyCode: k.keyCode,
+          which: k.keyCode, bubbles: true, cancelable: true
+        }));
+      } catch(e) {}
+    });
+  } catch(e) {}
+}
+
+function press(id) {
+  if (held[id]) return;
+  held[id] = true;
+  var el = document.getElementById(id);
+  if (el) el.classList.add('active');
+  fire(id, true);
+}
+
+function release(id) {
+  if (!held[id]) return;
+  held[id] = false;
+  var el = document.getElementById(id);
+  if (el) el.classList.remove('active');
+  fire(id, false);
+}
+
+// Attach to each button
+Object.keys(KEYS).forEach(function(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+
+  el.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    press(id);
+  }, { passive: false });
+
+  el.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    release(id);
+  }, { passive: false });
+
+  el.addEventListener('touchcancel', function(e) {
+    e.preventDefault();
+    release(id);
+  }, { passive: false });
+
+  // Mouse fallback for testing on desktop
+  el.addEventListener('mousedown', function(e) { press(id); });
+  el.addEventListener('mouseup', function(e) { release(id); });
+  el.addEventListener('mouseleave', function(e) { release(id); });
+});
 </script>
 </body>
 </html>
