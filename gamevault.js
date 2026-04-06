@@ -1,3 +1,4 @@
+
 // ═══════════════════════════════════════════════════════
 // GAMEVAULT — gamevault.js  (local games only)
 // ═══════════════════════════════════════════════════════
@@ -152,6 +153,57 @@ function applyCloak() {
 function openGame(path) {
   if (S.blank) openBlank(path);
   else window.open(path, '_blank');
+}
+
+// Games that need touch arrow controls (uses arrow keys)
+var TOUCH_CONTROL_GAMES = ['ovo', 'vex-3', 'vex-4', 'vex-5', 'vex-6', 'vex-7', 'run-3', 'geometry-dash', 'slope', 'tunnel-rush', 'doodle-jump', 'chrome-dino', 'geometry-vibes', 'geometry-vibes-m'];
+
+var TOUCH_CONTROLS_HTML = '<style>'
+  + '#tc{position:fixed;bottom:0;left:0;right:0;height:160px;z-index:9999;pointer-events:none;user-select:none;-webkit-user-select:none;}'
+  + '.tc-left{position:absolute;left:10px;bottom:10px;display:grid;grid-template-columns:60px 60px 60px;grid-template-rows:60px 60px;gap:6px;pointer-events:all}'
+  + '.tc-right{position:absolute;right:10px;bottom:10px;display:grid;grid-template-columns:60px 60px;grid-template-rows:60px;gap:6px;pointer-events:all}'
+  + '.tb{width:60px;height:60px;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.35);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .1s;touch-action:none}'
+  + '.tb:active,.tb.pressed{background:rgba(255,255,255,.45)}'
+  + '.tb-space{grid-column:1/span 2;width:126px}'
+  + '</style>'
+  + '<div id="tc">'
+  + '<div class="tc-left">'
+  + '<div></div><div class="tb" id="tUp" data-key="ArrowUp" data-code="38">▲</div><div></div>'
+  + '<div class="tb" id="tLeft" data-key="ArrowLeft" data-code="37">◀</div>'
+  + '<div class="tb" id="tDown" data-key="ArrowDown" data-code="40">▼</div>'
+  + '<div class="tb" id="tRight" data-key="ArrowRight" data-code="39">▶</div>'
+  + '</div>'
+  + '<div class="tc-right">'
+  + '<div class="tb tb-space" id="tSpace" data-key=" " data-code="32">JUMP</div>'
+  + '</div>'
+  + '</div>'
+  + '<script>'
+  + '(function(){'
+  + 'function fireKey(el,down){'
+  + 'var k=el.dataset.key,c=parseInt(el.dataset.code);'
+  + 'var t=down?"keydown":"keyup";'
+  + 'var ev=new KeyboardEvent(t,{key:k,keyCode:c,which:c,code:k==="ArrowUp"?"ArrowUp":k==="ArrowDown"?"ArrowDown":k==="ArrowLeft"?"ArrowLeft":k==="ArrowRight"?"ArrowRight":"Space",bubbles:true,cancelable:true});'
+  + 'document.dispatchEvent(ev);window.dispatchEvent(ev);'
+  + 'try{var f=document.querySelector("iframe,canvas");if(f)f.dispatchEvent(ev);}catch(e){}'
+  + '}'
+  + 'var held={};'
+  + 'document.querySelectorAll(".tb").forEach(function(btn){'
+  + 'btn.addEventListener("touchstart",function(e){e.preventDefault();if(!held[btn.id]){held[btn.id]=true;btn.classList.add("pressed");fireKey(btn,true);}},true);'
+  + 'btn.addEventListener("touchend",function(e){e.preventDefault();held[btn.id]=false;btn.classList.remove("pressed");fireKey(btn,false);},true);'
+  + 'btn.addEventListener("touchcancel",function(e){e.preventDefault();held[btn.id]=false;btn.classList.remove("pressed");fireKey(btn,false);},true);'
+  + 'btn.addEventListener("mousedown",function(e){if(!held[btn.id]){held[btn.id]=true;btn.classList.add("pressed");fireKey(btn,true);}});'
+  + 'btn.addEventListener("mouseup",function(){held[btn.id]=false;btn.classList.remove("pressed");fireKey(btn,false);});'
+  + '});'
+  + '})()'
+  + '<\/script>';
+
+function needsTouchControls(path) {
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 1;
+  if (!isMobile) return false;
+  for (var i = 0; i < TOUCH_CONTROL_GAMES.length; i++) {
+    if (path.indexOf(TOUCH_CONTROL_GAMES[i]) > -1) return true;
+  }
+  return false;
 }
 
 function openBlank(path) {
